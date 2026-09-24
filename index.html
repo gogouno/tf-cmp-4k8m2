@@ -520,8 +520,8 @@ Q：折疊電鋼琴的觸感跟真鋼琴一樣嗎？　A：「<b>老實說，不
 <h3>解法：把它變成門檻</h3>
 <div class="tw"><table>
   <tr><th style="width:8%">方案</th><th style="width:28%">做法</th><th>評估</th></tr>
-  <tr><td class="num b">A ★</td><td class="b">鍵盤鎖定機構<br><span class="src">立放前鎖住琴鍵／錘子</span></td>
-    <td><b>最可行。</b>類比：相機反光鏡鎖、硬碟磁頭停泊、汽車運輸鎖。讓錘子在垂直狀態下被固定、不能自由移動，側向力由鎖定件承擔而非樞軸。<b>技術成熟、成本低、可申請專利。</b>可與旋轉機構連動——轉到垂直時自動鎖定</td></tr>
+  <tr><td class="num b">A ★</td><td class="b">錘子夾持機構<br><span class="src">立放時把錘子夾住</span></td>
+    <td><b>最可行，而且比想像中簡單——因為半套機構琴裡本來就有。</b>詳見下方</td></tr>
   <tr><td class="num b">B</td><td>改用垂直友善的 action</td>
     <td>真正的直立鋼琴（upright）機構本來就垂直工作，用<b>彈簧回位</b>而非純重力——<b>證明「垂直友善的錘擊機構」在物理上可行</b>。但市售電鋼琴 action 全為水平設計，客製＝成本暴增、MOQ 更大</td></tr>
   <tr><td class="num b">C</td><td>立放時鍵盤朝上傾斜</td>
@@ -529,6 +529,39 @@ Q：折疊電鋼琴的觸感跟真鋼琴一樣嗎？　A：「<b>老實說，不
   <tr><td class="num b">D</td><td>用彈簧鍵（不怕垂直）</td>
     <td class="no">✕ <b>自我打臉。</b>那就變成折疊琴，「完整的鋼琴」定位直接崩塌</td></tr>
 </table></div>
+
+<h3>方案 A 做得到嗎：機構拆解</h3>
+<p class="sub">先看電鋼琴的錘擊機構到底長什麼樣，才知道要鎖什麼。</p>
+
+<div class="tw"><table>
+  <tr><th style="width:24%">零件</th><th>作用（原廠說法）</th></tr>
+  <tr><td class="b">Balance pin<br><span class="src">平衡銷</span></td><td>Kawai：「<b>錨定琴鍵，讓它像原聲鋼琴的鍵一樣前後搖擺</b>」——琴鍵是蹺蹺板，繞這根銷轉動</td></tr>
+  <tr><td class="b">Counterweight<br><span class="src">配重塊</span></td><td>Kawai：「按鍵所需的力道<b>從高音往低音遞增</b>，配重塊用來平衡觸鍵重量」</td></tr>
+  <tr><td class="b">Weighted hammer<br><span class="src">配重錘</span></td><td>Roland：「真正的錘子在按鍵時抬起，<b>然後靠自身重量落回</b>」——<span class="b" style="color:var(--warn)">這一句就是問題的全部</span></td></tr>
+  <tr><td class="b">Hammer rest rail<br><span class="src">錘子休止導軌</span></td><td><b>關鍵：錘子平時就是靠在一條鋪氈的導軌上。</b>這代表「用一根貫穿 88 鍵的桿去接住整排錘子」<b>是這套機構原本就在做的事</b></td></tr>
+</table></div>
+
+<div class="ok">
+<b>所以問題不是「錘子會亂動」，是「垂直時錘子離開了它原本靠著的那條導軌」。</b><br><br>
+解法對應得很直接：<b>在錘子的另一側，加一條可伸縮的第二導軌。</b>立放時伸出，把整排錘子<b>夾在兩條導軌之間</b>；放平時收回，機構恢復正常行程。<br><br>
+<b>BOM 大概就是：</b>一根貫穿 88 鍵的鋁擠型桿 ＋ 一條氈帶 ＋ 一組凸輪或四連桿 ＋ 兩個彈簧。<b>沒有電子件、沒有馬達、成本低到可以忽略。</b><br>
+而且可以<b>與旋轉軸直接連動</b>——轉到垂直時桿自動伸出，轉回水平時自動收回。<b>使用者完全不需要記得做任何事</b>，這一點很重要（第五節講過，變形摩擦力要接近零）。
+</div>
+
+<div class="note">
+<b>⚠️ 三個必須實測才知道的變數</b><br>
+<b>① 夾持力道。</b>太鬆等於沒鎖，太緊會壓壞錘氈或造成永久變形。需要試出範圍。<br>
+<b>② 琴鍵本身的 counterweight。</b>錘子鎖住了，但琴鍵裡的鉛塊還在產生側向力，壓在 balance pin 的襯套上。<b>可能需要同時壓住琴鍵</b>（一條壓在鍵面的氈條就夠）。<br>
+<b>③ 不同廠牌 action 的幾何差異很大。</b>Kawai 木質鍵、Yamaha GHS、Roland PHA 的錘子位置與行程都不同。<b>鎖定機構會跟你選的 action 綁死</b>——這反過來說也是好事，代表抄的人要連 action 一起抄。
+</div>
+
+<div class="note">
+<b>專利初步檢索：沒看到直接撞的</b><br>
+用「keyboard instrument / hammer action / locking / transport / vertical」查到的相關專利是：<br>
+US 4376402 <span class="src">Folding piano</span>・US 4254684 <span class="src">Breakdown piano</span>・US 12518726 <span class="src">Transportable stringed keyboard instrument</span>・US 4378881 <span class="src">Portable securing assembly for an electric musical instrument</span>・US 6998522 / US 12542118 <span class="src">Keyboard instrument</span><br><br>
+<b>全部是折疊、拆解、可攜固定，沒有一個是「立放時鎖定錘擊機構」。</b><br>
+⚠️ 但這只是初步檢索，<b>不是 FTO（freedom to operate）報告</b>。正式檢索要交給專利師，尤其 US 4378881 那件「可攜固定組件」要逐項讀請求項。
+</div>
 
 <div class="ok">
 <b>方案 A 不只是補救，它可能是整個產品最強的護城河。</b><br><br>
@@ -613,7 +646,39 @@ Q：折疊電鋼琴的觸感跟真鋼琴一樣嗎？　A：「<b>老實說，不
 <h3>所以被抄反而是必經之路</h3>
 <p>閨蜜機自己就是證據：百度一家做的時候是小眾，海信、小米、創維全進來之後，<b>品類 2025 年 +33.5%</b>。</p>
 <p><b>沒人抄的品類，永遠做不大。</b>而品類做大時受益最多的，是那個所有人都知道「他最早做」的人——前提是他守住了這個認知。</p>
-<p>所以專利還是要遞，但它的角色要重新定位：<b>不是武器，是證據；不是護城河，是時間戳。</b>它真正的用處是讓你在募資、談通路、接受採訪時，能說出那句「我們在○年○月就申請了」。</p>
+</div>
+
+<h3>專利到底有什麼用：拿去告人確實很難，但那不是它的主要用途</h3>
+<p class="sub">「專利是保護自己不被告，不是拿去告別人」——這個判斷是對的，但還可以再拆細一層：<b>專利對不同對手的效果，差距非常大。</b></p>
+
+<div class="tw"><table>
+  <tr><th style="width:26%">面對誰</th><th class="num" style="width:12%">有用嗎</th><th>為什麼</th></tr>
+  <tr><td class="b">中國白牌廠</td><td class="no">幾乎無用</td>
+    <td>不查專利、不怕告、告了也收不到。<b>Dyson 在中國勝訴，對方罰 $7,500 不付、繼續生產</b>——那是 Dyson，不是你</td></tr>
+  <tr style="background:var(--lin-bg)"><td class="b" style="color:var(--lin)">日系大廠<br><span class="src">Yamaha／Roland／Kawai</span></td><td class="yes">✓ 很有用</td>
+    <td><b>這是關鍵。</b>上市公司的法務一定會做 FTO 檢索。看到你的專利，他們的選擇是<b>繞道</b>或<b>來談</b>——兩個都對你有利。<br><b>而「繞道」本身就有價值</b>：為了避開中心軸，他們可能只能做邊緣軸，那就比你難用</td></tr>
+  <tr><td class="b">Amazon／電商平台</td><td class="yes">✓ 實務上最有效</td>
+    <td><b>有專利就能用平台的 IP 申訴機制直接下架仿品</b>（Amazon Brand Registry、蝦皮 IPPS）。不用上法院、不用律師、幾天就處理。<b>這是專利在日常最常被用到的方式</b></td></tr>
+  <tr><td class="b">海關</td><td class="yes">✓ 有用</td>
+    <td>中國專利可用於出口查扣，越南／台灣專利可用於進口查扣。<b>不是告人，是讓貨過不了關</b></td></tr>
+  <tr><td class="b">募資／通路／媒體</td><td class="yes">✓ 有用</td>
+    <td>信任狀。「我們在○年○月就申請了」這句話在募資頁、展會、採訪裡的份量，跟訴訟無關</td></tr>
+  <tr><td class="b">被告時的防禦</td><td class="mid">△ 部分</td>
+    <td>擁有專利<b>不等於不會被告</b>——別人的專利可能涵蓋你產品的其他部分。真正的防禦是<b>FTO 檢索</b>，專利只是其中一環</td></tr>
+</table></div>
+
+<div class="verdict">
+<h3>這件事有個對你特別有利的反轉</h3>
+<p>你真正該怕的不是中國白牌抄——他們做出來的是便宜貨，賣的是另一個市場，而且<b>他們的品質問題會反過來襯托你</b>（第六節的錘子鎖定就是最好的例子）。</p>
+<p><b>你真正該怕的是 Yamaha 或 Roland 直接做一台。</b>他們有品牌、有通路、有 action 自製能力，做出來就是完全體。</p>
+<p><b>而專利正好對後者有效、對前者無效。</b>也就是說：<b>專利擋不住你不怕的那個，擋得住你真正怕的那個。</b>這個投資報酬率是合理的。</p>
+<p><b>申請地建議：</b>日本（品牌註冊地、募資地、也是 Yamaha/Roland/Kawai 的主場）、中國（製造地，可用於出口查扣）、美國（Amazon 市場）。越南與台灣視通路進度再補。</p>
+</div>
+
+<div class="ok">
+<b>回到時間戳這件事</b><br>
+即使完全不打算執法，專利申請日仍然是<b>最硬的一個公開時間證據</b>——它有官方日期、可被第三方查證、無法事後偽造。<br>
+第六節那個錘子鎖定機構，<b>正是一個適合拿來當時間戳的標的</b>：簡單、具體、可圖示、非顯而易見（因為在你之前沒人需要把電鋼琴立起來）。<b>它比「旋轉結構」更容易獲准，也更難繞過。</b>
 </div>
 </section>
 
@@ -665,7 +730,7 @@ Q：折疊電鋼琴的觸感跟真鋼琴一樣嗎？　A：「<b>老實說，不
 </section>
 
 <footer>
-資料來源：Yamaha 官方 FAQ（電鋼琴運輸與存放）、Kawai 官方 FAQ（存放與運輸注意事項，逐字核對）、Reddit r/piano 垂直存放實際案例（2026-04）、Piano World 論壇黏鍵成因討論、折疊電鋼琴真實使用心得（Reddit r/piano 2023-01・2025-01、r/pianolearning 2024-10、vocus 折疊便攜電鋼琴評比 2026-04）、Dyson 仿冒與 IP 案例（The Guardian 2011-12、NYT Bits 2011-10、Engadget 2010-09 含 Dyson 官方聲明）、Reddit r/DigitalPiano（2026-06）與 r/pianolearning（2025-11）折疊電鋼琴真實使用心得、知乎小度添添閨蜜機使用心得（2025-05）、Taipei Times（2014-02-15、2015-02-11，華碩法說會與產品發表）、HEXUS（2015-02）、CNET Transformer Book T100 評測（2013-11-22）、Ars Technica 同上、CNET「Google, LG and Lenovo modular phones: what went wrong」（2017-04）、Digital Trends「Why modular smartphones failed」（2023-04）、洛圖科技 RUNTO《中國移動智慧屏零售市場月度追蹤》2025 年報。<br>
+資料來源：Roland「Digital Piano Action Explained」與 Kawai 數位鋼琴機構說明（錘擊機構結構）、美國專利初步檢索（US 4376402／4254684／4378881／6998522／12518726／12542118）、Yamaha 官方 FAQ（電鋼琴運輸與存放）、Kawai 官方 FAQ（存放與運輸注意事項，逐字核對）、Reddit r/piano 垂直存放實際案例（2026-04）、Piano World 論壇黏鍵成因討論、折疊電鋼琴真實使用心得（Reddit r/piano 2023-01・2025-01、r/pianolearning 2024-10、vocus 折疊便攜電鋼琴評比 2026-04）、Dyson 仿冒與 IP 案例（The Guardian 2011-12、NYT Bits 2011-10、Engadget 2010-09 含 Dyson 官方聲明）、Reddit r/DigitalPiano（2026-06）與 r/pianolearning（2025-11）折疊電鋼琴真實使用心得、知乎小度添添閨蜜機使用心得（2025-05）、Taipei Times（2014-02-15、2015-02-11，華碩法說會與產品發表）、HEXUS（2015-02）、CNET Transformer Book T100 評測（2013-11-22）、Ars Technica 同上、CNET「Google, LG and Lenovo modular phones: what went wrong」（2017-04）、Digital Trends「Why modular smartphones failed」（2023-04）、洛圖科技 RUNTO《中國移動智慧屏零售市場月度追蹤》2025 年報。<br>
 產品端數據取自 專案／21_自有樂器品牌／00_主索引（v5 定版幾何、成本與四階段路徑）。<br>
 本文為策略對照分析，非市場預測。T100 為 2013–2015 年案例，時空背景與當前不同，僅作結構性參照。
 </footer>
