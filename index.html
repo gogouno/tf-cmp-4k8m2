@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>變形這條路走得通嗎</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+  :root{
+    --bg:#f2f0ec; --panel:#fbfaf8; --ink:#1a1d21; --soft:#565d66; --faint:#8b929a;
+    --rule:#ddd9d2; --rule2:#eae7e1;
+    --asus:#b4541f;      /* 鏽橘 = 華碩側 */
+    --lin:#15616d;       /* 深青 = 林的產品側 */
+    --warn:#8f2f2f;
+    --asus-bg:#f8efe8; --lin-bg:#e7f0f1; --warn-bg:#f9ecec;
+    --display:"Archivo",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+    --bg:#15171a; --panel:#1d2024; --ink:#e8e6e2; --soft:#a7adb5; --faint:#767d85;
+    --rule:#2f343a; --rule2:#252a2f;
+    --asus:#e4936a; --lin:#5fb3c0; --warn:#dd8585;
+    --asus-bg:#2a1e16; --lin-bg:#152a2e; --warn-bg:#2b1a1a;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#15171a; --panel:#1d2024; --ink:#e8e6e2; --soft:#a7adb5; --faint:#767d85;
+    --rule:#2f343a; --rule2:#252a2f;
+    --asus:#e4936a; --lin:#5fb3c0; --warn:#dd8585;
+    --asus-bg:#2a1e16; --lin-bg:#152a2e; --warn-bg:#2b1a1a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:15px;line-height:1.68;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding-block:44px 90px;padding-left:20px;padding-right:20px}
+
+  header{margin-bottom:34px}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+          color:var(--faint);margin:0 0 14px}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,5.6vw,46px);line-height:1.1;
+     margin:0 0 14px;letter-spacing:-.02em;text-wrap:balance}
+  .lede{color:var(--soft);font-size:15.5px;margin:0;max-width:62ch}
+  .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:16px;
+        display:flex;gap:16px;flex-wrap:wrap}
+
+  section{margin-top:46px}
+  h2{font-family:var(--display);font-weight:700;font-size:21px;margin:0 0 6px;letter-spacing:-.01em}
+  h3{font-family:var(--display);font-weight:700;font-size:16px;margin:24px 0 8px}
+  .sub{color:var(--soft);font-size:13.5px;margin:0 0 18px;max-width:66ch}
+
+  /* 判決區：標題色與 mono 標籤標示身分，不用任何色條 */
+  .verdict{background:var(--panel);border:1px solid var(--rule);padding:21px 22px;margin:24px 0}
+  .verdict h3{margin:0 0 10px;font-size:17px;color:var(--lin);
+              font-family:var(--display);font-weight:700}
+  .verdict h3::before{content:"判斷";font-family:var(--mono);font-size:10px;font-weight:600;
+              letter-spacing:.12em;color:var(--lin);background:var(--lin-bg);
+              padding:3px 7px;margin-right:10px;vertical-align:2px}
+  .verdict p{margin:0 0 9px;font-size:14px}
+  .verdict p:last-child{margin:0}
+  .verdict.bad h3{color:var(--warn)}
+  .verdict.bad h3::before{content:"風險";color:var(--warn);background:var(--warn-bg)}
+
+  /* 雙欄對照：用帶色的標題列區分歸屬，不用邊框色條 */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  @media(max-width:660px){ .duo{grid-template-columns:1fr} }
+  .side{background:var(--panel);border:1px solid var(--rule);padding:0;overflow:hidden}
+  .side .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+             display:block;padding:9px 18px;font-weight:600}
+  .side.a .who{color:var(--asus);background:var(--asus-bg)}
+  .side.b .who{color:var(--lin);background:var(--lin-bg)}
+  .side p{margin:0;padding:0 18px 13px;font-size:13.5px}
+  .side p:first-of-type{padding-top:15px}
+
+  /* 數據磚 */
+  .bricks{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;
+          background:var(--rule);border:1px solid var(--rule);margin:16px 0}
+  .brick{background:var(--panel);padding:15px 14px}
+  .brick .v{font-family:var(--display);font-weight:800;font-size:25px;line-height:1.05;display:block;
+            font-variant-numeric:tabular-nums}
+  .brick .k{font-size:11px;color:var(--faint);margin-top:6px;display:block;line-height:1.45}
+  .brick.a .v{color:var(--asus)}
+  .brick.b .v{color:var(--lin)}
+  .brick.w .v{color:var(--warn)}
+
+  .tw{overflow-x:auto;border-top:2px solid var(--ink);margin-bottom:8px}
+  table{border-collapse:collapse;width:100%;min-width:660px;font-size:13.5px}
+  th{text-align:left;font-family:var(--mono);font-weight:600;font-size:10.5px;letter-spacing:.08em;
+     text-transform:uppercase;color:var(--faint);padding:10px 12px 10px 0;
+     border-bottom:1px solid var(--rule)}
+  td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule2);vertical-align:top}
+  tr:last-child td{border-bottom:1px solid var(--rule)}
+  .num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--mono)}
+  .b{font-weight:650}
+  td.dim{font-family:var(--display);font-weight:700}
+  .yes{color:var(--lin);font-weight:700}
+  .no{color:var(--warn);font-weight:700}
+  .mid{color:var(--faint);font-weight:700}
+
+  .note{background:var(--warn-bg);border:1px solid var(--warn);padding:16px 18px;
+        font-size:13.5px;line-height:1.75;margin:18px 0}
+  .note b{color:var(--warn)}
+  .ok{background:var(--lin-bg);border:1px solid var(--lin);padding:16px 18px;
+      font-size:13.5px;line-height:1.75;margin:18px 0}
+  .ok b{color:var(--lin)}
+
+  .quote{border-left:3px solid var(--rule);padding:4px 0 4px 16px;margin:14px 0;
+         color:var(--soft);font-size:14px}
+  .quote cite{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);
+              margin-top:7px;font-style:normal}
+
+  .src{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:7px}
+  footer{margin-top:58px;padding-top:20px;border-top:1px solid var(--rule);
+         font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.8}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+<header>
+  <p class="kicker">變形產品成敗對照 ／ ASUS T100 × 電鋼琴版閨蜜機</p>
+  <h1>變形這條路走得通嗎</h1>
+  <p class="lede">華碩變形筆電沒死，賣了 300 萬台、佔公司營收兩成。但它成功的理由，跟你的產品打算依靠的理由<b>幾乎完全相反</b>。這份對照把兩邊逐項拆開比。</p>
+  <p class="meta">
+    <span>製表 2026-09-24</span>
+    <span>T100 數據 2013–2015</span>
+    <span>閨蜜機數據 洛圖科技 2025 年報</span>
+  </p>
+</header>
+
+<!-- 先給結論 -->
+<div class="verdict">
+<h3>先講結論</h3>
+<p><b>你站在「變形產品」裡對的那一類</b>——變形完還是同一件東西，不是把不同功能拼在一起。死掉的模組化手機（Project Ara、LG G5、Padfone）全部屬於後者，你不在那個類別。</p>
+<p><b>但你跟 T100 的相似度，比你想像的低。</b>T100 賣的是「$350 買到完整 Windows 筆電」，變形是<b>附贈的加分項</b>；你賣的是「會轉的琴」，變形<b>本身就是全部的溢價理由</b>。這兩件事的商業模型不一樣。</p>
+<p><b>真正該擔心的不是變形，是品類。</b>閨蜜機 2025 年的數據顯示：電視大廠一進場，新創品牌一年內被擠出前十。這條規律跟變不變形無關。</p>
+</div>
+
+<!-- 一、T100 -->
+<section>
+<h2>一、華碩 T100 到底做對了什麼</h2>
+
+<div class="bricks">
+  <div class="brick a"><span class="v">300萬+</span><span class="k">出貨台數<br>2013/10 上市後</span></div>
+  <div class="brick a"><span class="v">20%</span><span class="k">佔華碩 2014 總營收</span></div>
+  <div class="brick a"><span class="v">$349</span><span class="k">起始售價（含鍵盤）</span></div>
+  <div class="brick a"><span class="v">+15%</span><span class="k">帶動 2013 Q4 淨利季增</span></div>
+</div>
+
+<p class="sub">但把當年的評測讀完，會發現一件跟直覺相反的事：<b>沒有人稱讚它的變形。</b></p>
+
+<div class="quote">
+「鍵盤很窄，像以前的小筆電。不如更大更貴的 Windows 產品快。螢幕不夠鮮豔。」<br>
+「你不會愛上它，但論 CP 值，很難打敗。」
+<cite>CNET 評測，2013-11</cite>
+</div>
+
+<div class="quote">
+「華碩把小筆電帶回新時代——而且<b>幾乎</b>做對了。」
+<cite>Ars Technica 評測，2013-11</cite>
+</div>
+
+<div class="ok">
+<b>T100 的真實賣點是「$350 能買到一台完整的 Windows 筆電」。</b><br>
+2013 年的背景：小筆電被 Ultrabook 和平板夾殺而死，但「便宜的隨身電腦」這個需求還在。T100 用一個 Atom 處理器 ＋ 2GB RAM ＋ 10 吋螢幕接住了它。<br>
+<b>變形（拆下來當平板）是讓這個價格更划算的理由，不是買它的理由。</b>評測全部圍繞「值不值」在打轉，沒有一篇說「因為它會變形所以買」。
+</div>
+</section>
+
+<!-- 二、閨蜜機現況 -->
+<section>
+<h2>二、閨蜜機品類 2025 年發生了什麼</h2>
+<p class="sub">你的產品借用的是這個品類的骨架，所以它的走勢直接關係到你。洛圖科技（RUNTO）2025 全年數據：</p>
+
+<div class="bricks">
+  <div class="brick b"><span class="v">33.8萬</span><span class="k">2025 全渠道銷量<br>同比 +33.5%</span></div>
+  <div class="brick b"><span class="v">12.2億</span><span class="k">銷額（人民幣）<br>同比 +27.7%</span></div>
+  <div class="brick w"><span class="v">3,616</span><span class="k">均價（元）<br><b>同比 −4.3%</b></span></div>
+  <div class="brick w"><span class="v">40.6%</span><span class="k">百度份額<br><b>領先優勢逐季縮小</b></span></div>
+</div>
+
+<h3>品類在長大，但小品牌在被清洗</h3>
+<div class="tw"><table>
+  <tr><th style="width:26%">2025 年變化</th><th>發生了什麼</th></tr>
+  <tr><td class="b">電視大廠進場</td><td><b>海信線上份額 16.4%，一年暴增 12 個百分點</b>；小米上市當年就拿 4%。創維、酷開同步進場。憑的是上游供應鏈整合能力與客廳生態</td></tr>
+  <tr><td class="b" style="color:var(--warn)">新創品牌被擠出</td><td><b>當貝、倍思、易樂看——2024 年表現好的品牌，2025 已全數跌出前十</b></td></tr>
+  <tr><td class="b">均價下跌</td><td>−4.3%，但 5,000 元以上高階份額反而 +3.8pt 至 12.2%（百度、海信推 32 吋 4K 旗艦）→ <b>兩極化</b></td></tr>
+  <tr><td class="b">海外超越中國</td><td>各式移動智慧屏 <b>2025 年海外出貨已超過中國市場</b>，2026 增速仍高於中國</td></tr>
+</table></div>
+
+<div class="note">
+<b>⚠️ 這段話值得你逐字讀</b><br>
+洛圖科技在年報裡直接寫：<br><br>
+「『闺蜜机』的常用名<b>让部分男性用户产生了疏离感</b>，再加上其它更多的叫法花样百出，都使得<b>市场教育的步调显得不一致、不统一，从而分散了品类光环，使行业长期处于小众市场状态</b>。」<br><br>
+<b>一個品類因為名字沒統一，十年做不大。</b>這件事對你有直接意義——你正在為一個沒人做過的東西取名字。取錯了，不只是品牌問題，是整個品類教育成本要你一個人扛。
+</div>
+</section>
+
+<!-- 三、大對照 -->
+<section>
+<h2>三、九個維度逐項比</h2>
+
+<div class="tw"><table>
+  <tr>
+    <th style="width:15%">維度</th>
+    <th style="width:32%">華碩 T100</th>
+    <th style="width:32%">電鋼琴版閨蜜機</th>
+    <th>判斷</th>
+  </tr>
+
+  <tr>
+    <td class="dim">變形的角色</td>
+    <td>加分項。主賣點是<b>價格</b></td>
+    <td><b>主賣點本身</b>。本體是一台普通電鋼琴</td>
+    <td class="no">✕ 差最多的一項</td></tr>
+
+  <tr>
+    <td class="dim">變形後<br>還是同一件事？</td>
+    <td>是。都是同一台電腦</td>
+    <td>是。都是同一台琴</td>
+    <td class="yes">✓ 兩邊都在「活」的那一類</td></tr>
+
+  <tr>
+    <td class="dim">變形摩擦力</td>
+    <td>插拔磁吸，一秒</td>
+    <td>推一下轉 90°，一秒<br><span class="src">v5：軸在中心、貼托板、單鉸鏈</span></td>
+    <td class="yes">✓ 同級</td></tr>
+
+  <tr>
+    <td class="dim">價格策略</td>
+    <td><b>往下打</b>。$349 搶「買不起筆電的人」</td>
+    <td><b>往上打</b>。$875 自有通路／Amazon 要 $1,225–1,400</td>
+    <td class="no">✕ 反方向</td></tr>
+
+  <tr>
+    <td class="dim">市場時機</td>
+    <td><b>順風</b>。小筆電剛死、需求還在、Windows 8 推觸控、Intel 補貼 Atom</td>
+    <td><b>逆風偏中性</b>。閨蜜機品類 +33.5% 在長，但均價跌、大廠洗牌中</td>
+    <td class="mid">△ 不如當年 T100</td></tr>
+
+  <tr>
+    <td class="dim">品類認知</td>
+    <td>「小筆電」<b>人人都懂</b>，不用教育</td>
+    <td>「會移動的鋼琴」<b>沒人聽過</b>，要從零教</td>
+    <td class="no">✕ 教育成本全在你身上</td></tr>
+
+  <tr>
+    <td class="dim">品牌地位</td>
+    <td>華碩，小筆電發明者，通路遍全球</td>
+    <td>新註冊的日本品牌，零知名度</td>
+    <td class="no">✕ 差距巨大</td></tr>
+
+  <tr>
+    <td class="dim">供應鏈</td>
+    <td>自有工廠＋Intel／微軟聯手背書</td>
+    <td>升降桌柱廠代工，開模 $31–88K、MOQ 500–1,000 台</td>
+    <td class="no">✕ 模具與 MOQ 是主要風險</td></tr>
+
+  <tr>
+    <td class="dim">被抄的速度</td>
+    <td>慢。要整條 x86 供應鏈</td>
+    <td><b>快</b>。結構簡單，中國廠看影片三個月能出貨</td>
+    <td class="no">✕ 只能靠專利擋</td></tr>
+</table></div>
+
+<p class="src">✓ 相同或有利　△ 有差距但可控　✕ 明顯不利</p>
+</section>
+
+<!-- 四、三個致命差異 -->
+<section>
+<h2>四、三個真正該處理的差異</h2>
+
+<h3>① 一個往下打，一個往上打</h3>
+<div class="duo">
+  <div class="side a">
+    <span class="who">ASUS T100</span>
+    <p>用一個「能接受的妥協品質」把價格壓到 $349，去吃<b>買不起更好東西的人</b>。</p>
+    <p>評測說它鍵盤窄、螢幕差、跑不快——<b>但沒關係，因為它便宜</b>。缺點被價格赦免。</p>
+  </div>
+  <div class="side b">
+    <span class="who">電鋼琴版閨蜜機</span>
+    <p>用一個獨特結構把價格推到 $875，去吃<b>願意為體驗多付錢的人</b>。</p>
+    <p>在這個定價下，<b>缺點不會被赦免</b>。晃一下、卡一下、聲音不夠好，客訴就來了。</p>
+  </div>
+</div>
+<div class="note">
+<b>含意：</b>T100 的成功模式你複製不了。你比較接近 <b>Lenovo Yoga</b>——翻轉就是主賣點、價格不低、賣了十幾年。但 Yoga 有兩件你沒有的東西：<b>Lenovo 的品牌</b>，以及「筆電本來就該便攜」這個<b>既有認知</b>。
+</div>
+
+<h3>② 品類有沒有名字</h3>
+<div class="duo">
+  <div class="side a">
+    <span class="who">ASUS T100</span>
+    <p>「小筆電（Netbook）」是華碩自己在 2007 年用 Eee PC 創造的品類，六年後<b>全世界都知道那是什麼</b>。</p>
+    <p>T100 只要說「小筆電回來了，還能拆成平板」，溝通就結束。</p>
+  </div>
+  <div class="side b">
+    <span class="who">電鋼琴版閨蜜機</span>
+    <p>連參照物「閨蜜機」自己都還沒把名字統一——<b>洛圖科技認定這是該品類長期小眾的主因之一</b>。</p>
+    <p>你要講的是「一台會走到你身邊的鋼琴」，這句話目前<b>只有你自己知道是什麼</b>。</p>
+  </div>
+</div>
+<div class="ok">
+<b>反過來看，這也是你最大的機會。</b>品類沒名字＝沒人佔住定義權。<b>如果那 45 個品牌名裡有一個能同時當「品類名」用，你就不只是在做產品，是在命名一個類別。</b>——這正是華碩 2007 年對「Netbook」做的事。
+</div>
+
+<h3>③ 被抄的時間差</h3>
+<div class="duo">
+  <div class="side a">
+    <span class="who">ASUS T100</span>
+    <p>要抄它得有 x86 供應鏈、Windows 授權、模具、通路。<b>門檻本身就是護城河。</b></p>
+  </div>
+  <div class="side b">
+    <span class="who">電鋼琴版閨蜜機</span>
+    <p>結構＝升降柱＋單鉸鏈＋托板＋硬殼。<b>中國廠看完影片，三個月能出貨。</b></p>
+    <p>而且閨蜜機供應鏈已經成熟，他們連零件都現成。</p>
+  </div>
+</div>
+<div class="note">
+<b>所以順序不能錯：專利遞件 → 才拍片 → 才發出去。</b>拍片＝公開揭露，發出去就回不了頭。<br>
+反過來說，這也是個好訊號：<b>好抄代表記憶點強</b>。沒人想抄的東西才真的沒搞頭。
+</div>
+</section>
+
+<!-- 五、能學的 -->
+<section>
+<h2>五、從 T100 真正能學的三件事</h2>
+<div class="tw"><table>
+  <tr><th style="width:22%">T100 做的</th><th style="width:34%">為什麼有效</th><th>你怎麼用</th></tr>
+  <tr>
+    <td class="b">不解釋變形，<br>解釋價值</td>
+    <td>所有行銷講的是「$350 完整 Windows」，不是「它會變形」。變形留給使用者自己發現、自己驚喜</td>
+    <td>影片不要解說機構。<b>讓那個轉的動作自己說話</b>，三秒內發生，不配旁白</td></tr>
+  <tr>
+    <td class="b">接住一個<br>已經存在的需求</td>
+    <td>小筆電死了但需求沒死，T100 去接住那群人</td>
+    <td>你要接的是<b>「買了琴卻不彈」的成人自學者</b>。這個需求存不存在、有多大，<b>是整案唯一該先驗證的事</b></td></tr>
+  <tr>
+    <td class="b">先有品類，<br>再有產品</td>
+    <td>華碩 2007 年先創造「Netbook」，2013 年 T100 才收割那個認知</td>
+    <td>品牌名選一個<b>能當品類名用</b>的。讓別人講「我買了一台○○」，而不是「我買了一台會轉的電鋼琴」</td></tr>
+</table></div>
+</section>
+
+<!-- 六、結論 -->
+<section>
+<h2>六、所以這條路走得通嗎</h2>
+
+<div class="verdict">
+<h3>走得通，但不是用 T100 的方式走</h3>
+<p><b>T100 是「便宜取勝，變形加分」。你只能走「變形取勝，價格認了」。</b>後者不是死路——Yoga、Surface、摺疊手機都走通了——但它要求的是<b>品牌力</b>和<b>品類教育</b>，這兩樣你現在都沒有，而且都很貴。</p>
+<p>所以你自己說的定位是對的：<b>當記憶點，不當主力。</b>做原型、拍片、參展、放展銷中心，讓它去談通路、談代工、談合作。這個用途下，$10–20K 是行銷預算，不是產品投資。</p>
+</div>
+
+<div class="verdict bad">
+<h3>但有一件事你要先想清楚</h3>
+<p>閨蜜機 2025 年的教訓是：<b>電視大廠一進場，當貝、倍思、易樂看這些前一年還在前十的品牌，一年內全部出局。</b></p>
+<p>如果「會走動的電鋼琴」真的被驗證有需求，<b>雅馬哈、羅蘭、卡西歐做這個東西比你快、比你便宜、比你有通路</b>。你的專利能擋結構，擋不住他們繞過去。</p>
+<p><b>所以真正的問題不是「這個產品能不能賣」，是「你在他們進場之前能累積到什麼」。</b>答案不會是市佔率——時間不夠。答案只可能是：<b>一批認得你名字的人、一條自己的通路、一個被你命名的品類。</b></p>
+<p>而這三樣，剛好都不需要你量產 500 台才能拿到。</p>
+</div>
+</section>
+
+<footer>
+資料來源：Taipei Times（2014-02-15、2015-02-11，華碩法說會與產品發表）、HEXUS（2015-02）、CNET Transformer Book T100 評測（2013-11-22）、Ars Technica 同上、CNET「Google, LG and Lenovo modular phones: what went wrong」（2017-04）、Digital Trends「Why modular smartphones failed」（2023-04）、洛圖科技 RUNTO《中國移動智慧屏零售市場月度追蹤》2025 年報。<br>
+產品端數據取自 專案／21_自有樂器品牌／00_主索引（v5 定版幾何、成本與四階段路徑）。<br>
+本文為策略對照分析，非市場預測。T100 為 2013–2015 年案例，時空背景與當前不同，僅作結構性參照。
+</footer>
+
+</div>
+
+</body>
+</html>
