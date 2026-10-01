@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Amazon 電鋼琴電子琴熱銷</title>
+<style>
+  :root{
+    --bg:#f2f0ec; --panel:#fbfaf8; --ink:#1a1d21; --soft:#565d66; --faint:#8b929a;
+    --rule:#ddd9d2; --rule2:#eae7e1;
+    --asus:#b4541f;      /* 鏽橘 = 華碩側 */
+    --lin:#15616d;       /* 深青 = 林的產品側 */
+    --warn:#8f2f2f;
+    --asus-bg:#f8efe8; --lin-bg:#e7f0f1; --warn-bg:#f9ecec;
+    --display:"Archivo",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+    --bg:#15171a; --panel:#1d2024; --ink:#e8e6e2; --soft:#a7adb5; --faint:#767d85;
+    --rule:#2f343a; --rule2:#252a2f;
+    --asus:#e4936a; --lin:#5fb3c0; --warn:#dd8585;
+    --asus-bg:#2a1e16; --lin-bg:#152a2e; --warn-bg:#2b1a1a;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#15171a; --panel:#1d2024; --ink:#e8e6e2; --soft:#a7adb5; --faint:#767d85;
+    --rule:#2f343a; --rule2:#252a2f;
+    --asus:#e4936a; --lin:#5fb3c0; --warn:#dd8585;
+    --asus-bg:#2a1e16; --lin-bg:#152a2e; --warn-bg:#2b1a1a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:15px;line-height:1.68;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding-block:44px 90px;padding-left:20px;padding-right:20px}
+
+  header{margin-bottom:34px}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+          color:var(--faint);margin:0 0 14px}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,5.6vw,46px);line-height:1.1;
+     margin:0 0 14px;letter-spacing:-.02em;text-wrap:balance}
+  .lede{color:var(--soft);font-size:15.5px;margin:0;max-width:62ch}
+  .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:16px;
+        display:flex;gap:16px;flex-wrap:wrap}
+
+  section{margin-top:46px}
+  h2{font-family:var(--display);font-weight:700;font-size:21px;margin:0 0 6px;letter-spacing:-.01em}
+  h3{font-family:var(--display);font-weight:700;font-size:16px;margin:24px 0 8px}
+  .sub{color:var(--soft);font-size:13.5px;margin:0 0 18px;max-width:66ch}
+
+  /* 判決區：標題色與 mono 標籤標示身分，不用任何色條 */
+  .verdict{background:var(--panel);border:1px solid var(--rule);padding:21px 22px;margin:24px 0}
+  .verdict h3{margin:0 0 10px;font-size:17px;color:var(--lin);
+              font-family:var(--display);font-weight:700}
+  .verdict h3::before{content:"判斷";font-family:var(--mono);font-size:10px;font-weight:600;
+              letter-spacing:.12em;color:var(--lin);background:var(--lin-bg);
+              padding:3px 7px;margin-right:10px;vertical-align:2px}
+  .verdict p{margin:0 0 9px;font-size:14px}
+  .verdict p:last-child{margin:0}
+  .verdict.bad h3{color:var(--warn)}
+  .verdict.bad h3::before{content:"風險";color:var(--warn);background:var(--warn-bg)}
+
+  /* 雙欄對照：用帶色的標題列區分歸屬，不用邊框色條 */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  @media(max-width:660px){ .duo{grid-template-columns:1fr} }
+  .side{background:var(--panel);border:1px solid var(--rule);padding:0;overflow:hidden}
+  .side .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+             display:block;padding:9px 18px;font-weight:600}
+  .side.a .who{color:var(--asus);background:var(--asus-bg)}
+  .side.b .who{color:var(--lin);background:var(--lin-bg)}
+  .side p{margin:0;padding:0 18px 13px;font-size:13.5px}
+  .side p:first-of-type{padding-top:15px}
+
+  /* 數據磚 */
+  .bricks{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;
+          background:var(--rule);border:1px solid var(--rule);margin:16px 0}
+  .brick{background:var(--panel);padding:15px 14px}
+  .brick .v{font-family:var(--display);font-weight:800;font-size:25px;line-height:1.05;display:block;
+            font-variant-numeric:tabular-nums}
+  .brick .k{font-size:11px;color:var(--faint);margin-top:6px;display:block;line-height:1.45}
+  .brick.a .v{color:var(--asus)}
+  .brick.b .v{color:var(--lin)}
+  .brick.w .v{color:var(--warn)}
+
+  .tw{overflow-x:auto;border-top:2px solid var(--ink);margin-bottom:8px}
+  table{border-collapse:collapse;width:100%;min-width:660px;font-size:13.5px}
+  th{text-align:left;font-family:var(--mono);font-weight:600;font-size:10.5px;letter-spacing:.08em;
+     text-transform:uppercase;color:var(--faint);padding:10px 12px 10px 0;
+     border-bottom:1px solid var(--rule)}
+  td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule2);vertical-align:top}
+  tr:last-child td{border-bottom:1px solid var(--rule)}
+  .num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--mono)}
+  .b{font-weight:650}
+  td.dim{font-family:var(--display);font-weight:700}
+  .yes{color:var(--lin);font-weight:700}
+  .no{color:var(--warn);font-weight:700}
+  .mid{color:var(--faint);font-weight:700}
+
+  .note{background:var(--warn-bg);border:1px solid var(--warn);padding:16px 18px;
+        font-size:13.5px;line-height:1.75;margin:18px 0}
+  .note b{color:var(--warn)}
+  .ok{background:var(--lin-bg);border:1px solid var(--lin);padding:16px 18px;
+      font-size:13.5px;line-height:1.75;margin:18px 0}
+  .ok b{color:var(--lin)}
+
+  .quote{border-left:3px solid var(--rule);padding:4px 0 4px 16px;margin:14px 0;
+         color:var(--soft);font-size:14px}
+  .quote cite{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);
+              margin-top:7px;font-style:normal}
+
+  .src{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:7px}
+  footer{margin-top:58px;padding-top:20px;border-top:1px solid var(--rule);
+         font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.8}
+  a{color:var(--lin);text-decoration:underline;text-underline-offset:2px}
+  td.nm a,.nm a{font-weight:650;color:var(--ink);text-decoration:underline;text-decoration-color:var(--lin);text-underline-offset:3px}
+  td.nm a:hover{color:var(--lin)}
+  td small{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-weight:400}
+  .nm small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:3px;font-weight:400}
+  .nm small a{font-weight:400;color:var(--faint);text-decoration-color:var(--rule)}
+  .part{margin-top:58px;padding-top:22px;border-top:2px solid var(--ink)}
+  .part h2{font-size:26px}
+  .def{background:var(--panel);border:1px solid var(--rule);padding:16px 18px;font-size:13.5px;margin:14px 0}
+  .def b{color:var(--lin)}
+  /* 手機：表格改成卡片，不用橫向捲動 */
+  @media(max-width:700px){
+    .tw{border-top:0;overflow:visible}
+    table{min-width:0;display:block}
+    thead{display:none}
+    tbody{display:block}
+    tr{display:block;background:var(--panel);border:1px solid var(--rule);margin:0 0 10px;padding:12px 14px}
+    td{display:flex;gap:12px;justify-content:space-between;padding:5px 0;border:0;font-size:13px}
+    td::before{content:attr(data-l);font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--faint);flex:0 0 5.5em;padding-top:2px}
+    td.nm{display:block;font-size:15px;padding:0 0 8px;border-bottom:1px solid var(--rule2);margin-bottom:4px}
+    td.nm::before{content:none}
+    td>*:last-child{text-align:right}
+    td.nm>*:last-child{text-align:left}
+    .num{white-space:normal}
+  }
+
+  @media(min-width:701px){td.nm{min-width:230px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <p class="kicker">自有樂器品牌 ／ 市場熱銷盤點</p>
+  <h1>Amazon 美國站：電鋼琴與電子琴熱銷機種</h1>
+  <p class="lede">用你之前的 Amazon 全品類掃描（2026-08-31，約 5,800 筆商品）挑出電鋼琴與電子琴的熱銷榜，再<b>今天</b>逐頁重抓商品頁，補上尺寸、重量、評價與品牌。每個機種都能點到 Amazon 商品頁。</p>
+  <p class="meta"><span>排名依據：8/31 掃描的「過去一個月購買 N+」</span><span>商品頁抓取：2026-10-01</span><span>售價：8/31 掃描價</span></p>
+</header>
+
+<div class="def">
+<b>這份資料怎麼讀（先看這段）</b><br>
+<b>月購買</b>是 Amazon 搜尋頁顯示的「過去一個月購買 N+」，N 是<b>下限分級</b>（50、100、200、300…），不是實際銷量；「月營收下限」是 售價 × 月購買 N，只是量級參考。這個資料是 8/31 的，距今約一個月，排名可能已經變動。<br>
+<b>電鋼琴</b>＝88 鍵重錘（標題寫 weighted／hammer／graded，或知名電鋼琴型號）；<b>電子琴</b>＝其餘，含半配重 88 鍵、61 鍵、49 鍵。分類是我依標題判斷，跟前一頁的標準一致。<br>
+<b>尺寸與重量是賣家自己填的</b>，常有錯：有些把琴架一起算進重量（例如同一款 Donner DEP-20，兩個 ASIN 一個標 11.6kg、一個標 24.75kg），有些欄位順序混亂。尺寸我統一轉成 cm 並由大到小排列；明顯不合理的有標註。<br>
+<b>通路</b>是我對每個機種做網路搜尋，結果裡出現過的零售商，<b>不保證完整</b>；標「其他通路沒查」的只確認有在 Amazon 賣。<br>
+<b>這份只有美國 Amazon</b>，沒有台灣、日本或 Walmart 等通路的銷量。
+</div>
+
+<div class="verdict">
+<h3>先講結論</h3>
+<p><b>電鋼琴熱銷榜：Yamaha、Donner、Roland 三家合計佔月購買下限的 78%。</b>20 個機種月購買下限合計 2,900，品牌佔比：YAMAHA 34%、Donner 29%、Roland 14%、UISCOM 10%、KUMENG 7%、MOSEN MUSIC 3%。售價中位數 US$400，範圍 US$230–839。第一名是 Yamaha P-145BT（月購買 600+，US$437）。</p>
+<p><b>電子琴熱銷榜：RockJam 一家就佔 41%，其餘多是 JIKADA 等白牌。</b>24 個機種合計 7,400，品牌佔比：RockJam 41%、JIKADA 15%、Donner 9%、YAMAHA 5%、Alesis 5%、Yhgfe 4%。售價中位數 US$120，範圍 US$41–220。第一名 RockJam RJ5061 是含琴架、琴凳、耳機的 61 鍵套組，月購買 2,000+、評價近 4.7 萬則。Yamaha 與 Alesis 各只佔約 5%。</p>
+<p><b>你的產品定位的價格空間：</b>薄板便攜重錘電鋼琴在 Amazon 是 US$437（Yamaha P-145BT）到 US$660（P-225）；你規劃的自有通路售價約 US$875，<b>高出主流熱銷價 30%–100%</b>，只能靠「會移動」這個差異撐價，不能跟熱銷款比價。</p>
+</div>
+
+<section>
+<h2>電鋼琴熱銷榜（20 個機種）</h2>
+<p class="sub">依 8/31 掃描的月購買排序，同級再依售價高低。名牌的重量尺寸比較可信（Yamaha、Roland 與原廠規格一致）。</p>
+<div class="tw"><table><thead><tr><th>機種</th><th>售價</th><th>月購買</th><th>月營收下限</th><th>評價</th><th>尺寸</th><th>重量</th><th>通路</th></tr></thead><tbody><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0F9H3SHFJ" target="_blank" rel="noopener">Yamaha 88-Key Digital Piano with Weighted Keys, Compact Design, Blueto</a><small>YAMAHA　名牌</small></td><td class="num" data-l="售價">US$437</td><td class="num" data-l="月購買">600+</td><td class="num" data-l="月營收下限">US$262,200</td><td class="num" data-l="評價">4.6★／139 則</td><td class="num" data-l="尺寸">133×27×13 cm</td><td class="num" data-l="重量">11.1kg</td><td data-l="通路">Amazon、Walmart、Musician&#x27;s Friend、Yamaha官網</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0CHFC3KCR" target="_blank" rel="noopener">UISCOM 88 Key Weighted Home Digital Piano,Wooden Desk Keyboard,Triple-</a><small>UISCOM　白牌／雜牌</small></td><td class="num" data-l="售價">US$299</td><td class="num" data-l="月購買">300+</td><td class="num" data-l="月營收下限">US$89,700</td><td class="num" data-l="評價">4.4★／217 則</td><td class="num" data-l="尺寸">賣家沒填</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon、Walmart</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0CBN7HYKB" target="_blank" rel="noopener">Yamaha P225 88-Key Digital Piano with Weighted Keys, Portable Design, </a><small>YAMAHA　名牌</small></td><td class="num" data-l="售價">US$660</td><td class="num" data-l="月購買">200+</td><td class="num" data-l="月營收下限">US$132,000</td><td class="num" data-l="評價">4.7★／354 則</td><td class="num" data-l="尺寸">141×36×21 cm</td><td class="num" data-l="重量">11.5kg</td><td data-l="通路">Amazon、Yamaha官網、Sweetwater、Guitar Center、Musician&#x27;s Friend</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B07MH391ZF" target="_blank" rel="noopener">Roland FP-10 Compact 88-Note Digital Piano</a><small>Roland　名牌</small></td><td class="num" data-l="售價">US$500</td><td class="num" data-l="月購買">200+</td><td class="num" data-l="月營收下限">US$100,000</td><td class="num" data-l="評價">4.5★／1,750 則</td><td class="num" data-l="尺寸">138×40×28 cm</td><td class="num" data-l="重量">12.2kg</td><td data-l="通路">Amazon、Sweetwater、B&amp;H、Reverb、Roland官網</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B08SBZW46G" target="_blank" rel="noopener">Roland FP-30X 88-Note Digital Piano, Black</a><small>Roland　名牌</small></td><td class="num" data-l="售價">US$487</td><td class="num" data-l="月購買">200+</td><td class="num" data-l="月營收下限">US$97,400</td><td class="num" data-l="評價">4.6★／386 則</td><td class="num" data-l="尺寸">130×28×15 cm</td><td class="num" data-l="重量">14.8kg</td><td data-l="通路">Amazon、Sweetwater、Sam Ash</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B07X9SD5JR" target="_blank" rel="noopener">Donner DEP-20 Beginner Digital Piano 88 Key Full Size Weighted Keyboar</a><small>Donner　名牌</small></td><td class="num" data-l="售價">US$310</td><td class="num" data-l="月購買">200+</td><td class="num" data-l="月營收下限">US$62,000</td><td class="num" data-l="評價">4.6★／2,360 則</td><td class="num" data-l="尺寸">145×34×23 cm</td><td class="num" data-l="重量">11.6kg</td><td data-l="通路">Amazon、Donner官網、Walmart</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0DZ6GMG2X" target="_blank" rel="noopener">Digital Piano 88 Key Weighted Keyboard Full-Size Desk Electric Piano</a><small>KUMENG　白牌／雜牌</small></td><td class="num" data-l="售價">US$279</td><td class="num" data-l="月購買">200+</td><td class="num" data-l="月營收下限">US$55,800</td><td class="num" data-l="評價">4.4★／122 則</td><td class="num" data-l="尺寸">135×77×31 cm</td><td class="num" data-l="重量">24.5kg</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B08RNFJ98M" target="_blank" rel="noopener">Yamaha DGX-670B 88-Key Weighted Digital Piano, Black</a><small>YAMAHA　名牌</small></td><td class="num" data-l="售價">US$839</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$83,900</td><td class="num" data-l="評價">4.8★／562 則</td><td class="num" data-l="尺寸">140×45×15 cm</td><td class="num" data-l="重量">30.7kg</td><td data-l="通路">Amazon、Guitar Center、Yamaha官網、Musician&#x27;s Friend</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B094N1H2DL" target="_blank" rel="noopener">Donner DDP-80 Digital Piano 88 Key Weighted Keyboard, Full-size Electr</a><small>Donner　名牌</small></td><td class="num" data-l="售價">US$500</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$50,000</td><td class="num" data-l="評價">4.4★／1,169 則</td><td class="num" data-l="尺寸">150×74×43 cm</td><td class="num" data-l="重量">21.3kg</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B00UJ9LNDK" target="_blank" rel="noopener">Yamaha 88-Key Weighted Portable Digital Piano Keyboard with Music Rest</a><small>YAMAHA　名牌</small></td><td class="num" data-l="售價">US$450</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$45,000</td><td class="num" data-l="評價">4.7★／1,754 則</td><td class="num" data-l="尺寸">133×29×15 cm</td><td class="num" data-l="重量">11.5kg</td><td data-l="通路">Amazon、Sweetwater、Yamaha官網、Sam Ash、Musician&#x27;s Friend、Guitar Center</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0DKFF7BBL" target="_blank" rel="noopener">Donner DDP-95 Digital Piano with 88 Key Weighted Keyboard, Beginner Fu</a><small>Donner　名牌</small></td><td class="num" data-l="售價">US$418</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$41,800</td><td class="num" data-l="評價">4.6★／79 則</td><td class="num" data-l="尺寸">77×35×17 cm（欄位異常，疑似是包裝或配件尺寸）</td><td class="num" data-l="重量">26.2kg</td><td data-l="通路">Amazon、Donner官網</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B08CV95PBX" target="_blank" rel="noopener">Donner DEP-20 Beginner Digital Piano 88 Key Full Size Weighted Keyboar</a><small>Donner　名牌</small></td><td class="num" data-l="售價">US$410</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$41,000</td><td class="num" data-l="評價">4.6★／1,696 則</td><td class="num" data-l="尺寸">133×94×29 cm</td><td class="num" data-l="重量">24.8kg</td><td data-l="通路">Amazon、Donner官網、Walmart</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0DP6MM6ZJ" target="_blank" rel="noopener">Donner OURA S100 Digital Piano with 88 Key Graded Hammer Weighted Keyb</a><small>Donner　名牌</small></td><td class="num" data-l="售價">US$400</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$40,000</td><td class="num" data-l="評價">4.5★／309 則</td><td class="num" data-l="尺寸">129×91×38 cm</td><td class="num" data-l="重量">21.1kg</td><td data-l="通路">Amazon、Donner官網</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0CQ7VD34X" target="_blank" rel="noopener">Donner OURA DDP-60 88 Key Digital Piano: Full Size Keyboard, Sensitive</a><small>Donner　名牌</small></td><td class="num" data-l="售價">US$320</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$32,000</td><td class="num" data-l="評價">4.5★／309 則</td><td class="num" data-l="尺寸">136×76×36 cm</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0F997FMGH" target="_blank" rel="noopener">Donner DDP-95 Digital Piano 88 Key Weighted Keyboard Full Size, Wirele</a><small>Donner　名牌</small></td><td class="num" data-l="售價">US$399</td><td class="num" data-l="月購買">50+</td><td class="num" data-l="月營收下限">US$19,950</td><td class="num" data-l="評價">4.6★／79 則</td><td class="num" data-l="尺寸">135×79×37 cm</td><td class="num" data-l="重量">26.2kg</td><td data-l="通路">Amazon、Donner官網</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0CX53CXX9" target="_blank" rel="noopener">MOSEN 88 Key Fully Weighted Digital Piano Graded Hammer Action Keyboar</a><small>MOSEN MUSIC　白牌／雜牌</small></td><td class="num" data-l="售價">US$360</td><td class="num" data-l="月購買">50+</td><td class="num" data-l="月營收下限">US$18,000</td><td class="num" data-l="評價">4.4★／63 則</td><td class="num" data-l="尺寸">賣家沒填</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0CY52V5Q7" target="_blank" rel="noopener">Donner DEP-20 Lite Digital Piano 88 Key Weighted Keyboard Full Size, P</a><small>Donner　名牌</small></td><td class="num" data-l="售價">US$313</td><td class="num" data-l="月購買">50+</td><td class="num" data-l="月營收下限">US$15,650</td><td class="num" data-l="評價">4.3★／114 則</td><td class="num" data-l="尺寸">129×27×11 cm</td><td class="num" data-l="重量">13.5kg</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0FHPY8B72" target="_blank" rel="noopener">Eastar EUP-100 Digital Piano 88 Key Weighted Keyboard Full Size, Home </a><small>Eastar　白牌／雜牌</small></td><td class="num" data-l="售價">US$300</td><td class="num" data-l="月購買">50+</td><td class="num" data-l="月營收下限">US$15,000</td><td class="num" data-l="評價">4.6★／103 則</td><td class="num" data-l="尺寸">136×79×29 cm</td><td class="num" data-l="重量">25.0kg</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0F9FHGK9L" target="_blank" rel="noopener">Donner DEP-16A Beginner Digital Piano 88 Key Full Size Weighted Keyboa</a><small>Donner　名牌</small></td><td class="num" data-l="售價">US$300</td><td class="num" data-l="月購買">50+</td><td class="num" data-l="月營收下限">US$15,000</td><td class="num" data-l="評價">4.3★／30 則</td><td class="num" data-l="尺寸">賣家沒填</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0CX7L77X4" target="_blank" rel="noopener">MOSEN Digital Piano 88-Key Weighted Keyboard with Hammer Action, Porta</a><small>MOSEN MUSIC　白牌／雜牌</small></td><td class="num" data-l="售價">US$230</td><td class="num" data-l="月購買">50+</td><td class="num" data-l="月營收下限">US$11,500</td><td class="num" data-l="評價">3.9★／75 則</td><td class="num" data-l="尺寸">賣家沒填</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr></tbody></table></div>
+</section>
+
+<section>
+<h2>電子琴熱銷榜（24 個機種）</h2>
+<p class="sub">含 88 鍵半配重（無擊錘）與 61 鍵。重量與尺寸欄位錯誤比電鋼琴多，因為多是白牌套組（含琴架琴凳耳機）。</p>
+<div class="tw"><table><thead><tr><th>機種</th><th>售價</th><th>月購買</th><th>月營收下限</th><th>評價</th><th>尺寸</th><th>重量</th><th>通路</th></tr></thead><tbody><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B083ZCWWWK" target="_blank" rel="noopener">RockJam RJ5061 61 Key Keyboard Piano Kit with Stand, Bench &amp; Headphone</a><small>RockJam　名牌</small></td><td class="num" data-l="售價">US$120</td><td class="num" data-l="月購買">2,000+</td><td class="num" data-l="月營收下限">US$240,000</td><td class="num" data-l="評價">4.5★／46,961 則</td><td class="num" data-l="尺寸">93×28×8 cm</td><td class="num" data-l="重量">3.3kg</td><td data-l="通路">Amazon、Walmart</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B08T61FPTV" target="_blank" rel="noopener">JIKADA 61 Key Portable Electronic Keyboard Piano,3 Teaching Modes</a><small>JIKADA　白牌／雜牌</small></td><td class="num" data-l="售價">US$176</td><td class="num" data-l="月購買">1,000+</td><td class="num" data-l="月營收下限">US$176,000</td><td class="num" data-l="評價">4.6★／1,380 則</td><td class="num" data-l="尺寸">92×34×9 cm</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（搜尋只見 Amazon）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0C2C5P1BN" target="_blank" rel="noopener">Donner 61 Key Keyboard Piano, Electric Piano Keyboard Kit with 249 Voi</a><small>Donner　名牌</small></td><td class="num" data-l="售價">US$120</td><td class="num" data-l="月購買">500+</td><td class="num" data-l="月營收下限">US$60,000</td><td class="num" data-l="評價">4.4★／1,058 則</td><td class="num" data-l="尺寸">94×30×9 cm</td><td class="num" data-l="重量">4.5kg</td><td data-l="通路">Amazon、Walmart、Donner官網</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B07FDL3NGT" target="_blank" rel="noopener">RockJam RJ361 61 Key Compact Keyboard Piano for Beginners</a><small>RockJam　名牌</small></td><td class="num" data-l="售價">US$70</td><td class="num" data-l="月購買">500+</td><td class="num" data-l="月營收下限">US$35,000</td><td class="num" data-l="評價">4.3★／13,320 則</td><td class="num" data-l="尺寸">80×28×8 cm</td><td class="num" data-l="重量">2.8kg</td><td data-l="通路">Amazon（搜尋只見 Amazon）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0D1CT2V57" target="_blank" rel="noopener">Yamaha 61-Key Portable Keyboard for Beginners with Learning Tools, Mus</a><small>YAMAHA　名牌</small></td><td class="num" data-l="售價">US$151</td><td class="num" data-l="月購買">400+</td><td class="num" data-l="月營收下限">US$60,400</td><td class="num" data-l="評價">4.6★／437 則</td><td class="num" data-l="尺寸">94×32×10 cm</td><td class="num" data-l="重量">4.0kg</td><td data-l="通路">Amazon、Yamaha官網、Musician&#x27;s Friend、Walmart、Andertons、Guitar Center</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B06XBZH1DZ" target="_blank" rel="noopener">RockJam RJ761 61 Key Keyboard Piano Kit, Stand, Stool, Sustain &amp; Headp</a><small>RockJam　名牌</small></td><td class="num" data-l="售價">US$160</td><td class="num" data-l="月購買">300+</td><td class="num" data-l="月營收下限">US$48,000</td><td class="num" data-l="評價">4.5★／46,961 則</td><td class="num" data-l="尺寸">92×33×11 cm</td><td class="num" data-l="重量">9.0kg</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0H414GJVY" target="_blank" rel="noopener">88 Key Piano Keyboard, Electric Digital Piano with Semi Weighted Keys,</a><small>Yhgfe　白牌／雜牌</small></td><td class="num" data-l="售價">US$110</td><td class="num" data-l="月購買">300+</td><td class="num" data-l="月營收下限">US$33,000</td><td class="num" data-l="評價">3.4★／9 則</td><td class="num" data-l="尺寸">112×25×10 cm</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0DH2GJ2BJ" target="_blank" rel="noopener">UISCOM Digital Piano Keyboard 88 Key Semi-Weighted for Beginners,Elect</a><small>UISCOM　白牌／雜牌</small></td><td class="num" data-l="售價">US$168</td><td class="num" data-l="月購買">200+</td><td class="num" data-l="月營收下限">US$33,600</td><td class="num" data-l="評價">4.4★／311 則</td><td class="num" data-l="尺寸">賣家沒填</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0H4TYB7SJ" target="_blank" rel="noopener">88 Key Piano Keyboard, Electric Digital Piano with Semi Weighted Keys,</a><small>Zilvok　白牌／雜牌</small></td><td class="num" data-l="售價">US$120</td><td class="num" data-l="月購買">200+</td><td class="num" data-l="月營收下限">US$24,000</td><td class="num" data-l="評價">4.3★／19 則</td><td class="num" data-l="尺寸">賣家沒填</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0D2D242BG" target="_blank" rel="noopener">Alesis Melody 61 MK4 61-Key Piano Keyboard Bundle</a><small>Alesis　名牌</small></td><td class="num" data-l="售價">US$119</td><td class="num" data-l="月購買">200+</td><td class="num" data-l="月營收下限">US$23,800</td><td class="num" data-l="評價">4.4★／1,290 則</td><td class="num" data-l="尺寸">91×23×7 cm</td><td class="num" data-l="重量">3.0kg</td><td data-l="通路">Amazon、Guitar Center、Walmart、Alesis官網</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0D2CYH6Q7" target="_blank" rel="noopener">Alesis Melody 61 MK4 61-Key Piano Keyboard</a><small>Alesis　名牌</small></td><td class="num" data-l="售價">US$85</td><td class="num" data-l="月購買">200+</td><td class="num" data-l="月營收下限">US$17,000</td><td class="num" data-l="評價">4.3★／1,135 則</td><td class="num" data-l="尺寸">91×23×7 cm</td><td class="num" data-l="重量">3.0kg</td><td data-l="通路">Amazon、Guitar Center、Walmart、Alesis官網</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B07F8KF4LC" target="_blank" rel="noopener">RockJam RJ549 49 Key Keyboard Piano for Beginners with Note Stickers</a><small>RockJam　名牌</small></td><td class="num" data-l="售價">US$55</td><td class="num" data-l="月購買">200+</td><td class="num" data-l="月營收下限">US$11,000</td><td class="num" data-l="評價">4.2★／11,488 則</td><td class="num" data-l="尺寸">70×23×8 cm</td><td class="num" data-l="重量">1.7kg</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0H3ZNFFS6" target="_blank" rel="noopener">61 keys keyboard piano, Electronic Digital Piano with Built-In Speaker</a><small>Ugrfw　白牌／雜牌</small></td><td class="num" data-l="售價">US$50</td><td class="num" data-l="月購買">200+</td><td class="num" data-l="月營收下限">US$10,000</td><td class="num" data-l="評價">3.9★／19 則</td><td class="num" data-l="尺寸">75×22×6 cm</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0H2VTYDJ5" target="_blank" rel="noopener">61 keys keyboard piano, Electronic Digital Piano with Built-In Speaker</a><small>MIZAYI　白牌／雜牌</small></td><td class="num" data-l="售價">US$41</td><td class="num" data-l="月購買">200+</td><td class="num" data-l="月營收下限">US$8,200</td><td class="num" data-l="評價">3.6★／10 則</td><td class="num" data-l="尺寸">58×5×5 cm</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0D7C4QD1C" target="_blank" rel="noopener">Donner Digital Piano Keyboard Velocity-Sensitive 88 Keys with Removabl</a><small>Donner　名牌</small></td><td class="num" data-l="售價">US$220</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$22,000</td><td class="num" data-l="評價">4.2★／313 則</td><td class="num" data-l="尺寸">23×6×6 cm（欄位異常，疑似是包裝或配件尺寸）</td><td class="num" data-l="重量">15.0kg</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0D3LDKSXH" target="_blank" rel="noopener">Donner DEP-1S Piano Keyboard 88 Keys, Beginner Digital Piano with 88 K</a><small>Donner　名牌</small></td><td class="num" data-l="售價">US$185</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$18,500</td><td class="num" data-l="評價">4.3★／153 則</td><td class="num" data-l="尺寸">125×29×9 cm</td><td class="num" data-l="重量">8.0kg</td><td data-l="通路">Amazon、Donner官網</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0D41Q793G" target="_blank" rel="noopener">UISCOM Digital Piano Keyboard for Beginners,Full Size 88 Key Semi-Weig</a><small>UISCOM　白牌／雜牌</small></td><td class="num" data-l="售價">US$168</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$16,800</td><td class="num" data-l="評價">4.4★／311 則</td><td class="num" data-l="尺寸">129×72×27 cm</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0DGQJPHZT" target="_blank" rel="noopener">Digital Piano 88 Key Semi Weighted Keyboard, Electric Piano</a><small>KUMENG　白牌／雜牌</small></td><td class="num" data-l="售價">US$162</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$16,200</td><td class="num" data-l="評價">4.4★／290 則</td><td class="num" data-l="尺寸">135×31×17 cm</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0B1DBKHHH" target="_blank" rel="noopener">The ONE 61 Key Piano Keyboard with Lighted Keys, Bluetooth MIDI</a><small>The ONE　名牌</small></td><td class="num" data-l="售價">US$160</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$16,000</td><td class="num" data-l="評價">4.6★／651 則</td><td class="num" data-l="尺寸">89×30×9 cm</td><td class="num" data-l="重量">3.5kg</td><td data-l="通路">Amazon、Musician&#x27;s Friend</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0C5DH472P" target="_blank" rel="noopener">MUSTAR 61 Key Piano Keyboard, Electric Piano Keyboard with Lighted Up </a><small>MUSTAR　白牌／雜牌</small></td><td class="num" data-l="售價">US$130</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$13,000</td><td class="num" data-l="評價">4.6★／482 則</td><td class="num" data-l="尺寸">97×93×30 cm</td><td class="num" data-l="重量">7.6kg</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0CYQ3TL2R" target="_blank" rel="noopener">JIKADA 61 Key Electronic Keyboard Piano with 300 Timbres, 300 Rhythms</a><small>JIKADA　白牌／雜牌</small></td><td class="num" data-l="售價">US$130</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$13,000</td><td class="num" data-l="評價">4.4★／266 則</td><td class="num" data-l="尺寸">90×7×7 cm</td><td class="num" data-l="重量">9.9kg</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0HC627WWG" target="_blank" rel="noopener">88 Key Piano Keyboard, Electric Digital Piano with Semi Weighted Keys,</a><small>Veitob　白牌／雜牌</small></td><td class="num" data-l="售價">US$120</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$12,000</td><td class="num" data-l="評價">2.8★／6 則</td><td class="num" data-l="尺寸">賣家沒填</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0D3PQL8GQ" target="_blank" rel="noopener">61 Key Keyboard Piano for Beginners w/Stand Bench, Lighted Keys in Fol</a><small>VEIYOUMO　白牌／雜牌</small></td><td class="num" data-l="售價">US$102</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$10,200</td><td class="num" data-l="評價">4.4★／169 則</td><td class="num" data-l="尺寸">91×79×30 cm</td><td class="num" data-l="重量">8.2kg</td><td data-l="通路">Amazon（其他通路沒查）</td></tr><tr><td class="nm" data-l="機種"><a href="https://www.amazon.com/dp/B0GWCK1KLF" target="_blank" rel="noopener">61 Key Portable Keyboard Piano with Stand, Electronic Keyboard Piano K</a><small>HERTMUN　白牌／雜牌</small></td><td class="num" data-l="售價">US$90</td><td class="num" data-l="月購買">100+</td><td class="num" data-l="月營收下限">US$9,000</td><td class="num" data-l="評價">4.1★／48 則</td><td class="num" data-l="尺寸">賣家沒填</td><td class="num" data-l="重量">賣家沒填</td><td data-l="通路">Amazon（其他通路沒查）</td></tr></tbody></table></div>
+</section>
+
+<section>
+<h2>資料來源與限制</h2>
+<div class="note">
+<b>搜尋資料</b>：你之前建的 Amazon 全品類掃描（專案 19_eBay跨境電商，tools/amazon_scan.py，8/31 以美金重掃），我沒有重掃，因為重掃需要你的 :9444 Chrome，目前沒開。<br>
+<b>商品頁</b>：今天用 curl 逐頁抓 44 個 ASIN。Amazon 搜尋頁用 curl 會被擋，商品頁可以；Firecrawl 目前沒額度。<br>
+<b>沒抓到的欄位</b>：商品頁的售價欄位我沒解析成功，所以售價用 8/31 掃描價；月購買標籤商品頁沒有顯示，只能用 8/31 的。<br>
+<b>Amazon 排名（BSR）沒放</b>：Yamaha 的幾個頁面（P-145BT、P-225、P-45）都顯示同一個 #280，疑似共用父商品，不可靠。<br>
+<b>只涵蓋 Amazon 搜尋結果前三頁出現的商品</b>，沒出現在掃描的約 50 個關鍵字搜尋裡的熱銷機種不會在榜上。
+</div>
+</section>
+
+<footer>自有樂器品牌 21_自有樂器品牌 ／ Amazon 熱銷盤點 ／ 2026-10-01<br>本頁不收錄、不索引（noindex、robots Disallow）。</footer>
+</div>
+</body>
+</html>
