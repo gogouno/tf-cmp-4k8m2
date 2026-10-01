@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>電鋼琴與底座規格</title>
+<style>
+  :root{
+    --bg:#f2f0ec; --panel:#fbfaf8; --ink:#1a1d21; --soft:#565d66; --faint:#8b929a;
+    --rule:#ddd9d2; --rule2:#eae7e1;
+    --asus:#b4541f;      /* 鏽橘 = 華碩側 */
+    --lin:#15616d;       /* 深青 = 林的產品側 */
+    --warn:#8f2f2f;
+    --asus-bg:#f8efe8; --lin-bg:#e7f0f1; --warn-bg:#f9ecec;
+    --display:"Archivo",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+    --bg:#15171a; --panel:#1d2024; --ink:#e8e6e2; --soft:#a7adb5; --faint:#767d85;
+    --rule:#2f343a; --rule2:#252a2f;
+    --asus:#e4936a; --lin:#5fb3c0; --warn:#dd8585;
+    --asus-bg:#2a1e16; --lin-bg:#152a2e; --warn-bg:#2b1a1a;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#15171a; --panel:#1d2024; --ink:#e8e6e2; --soft:#a7adb5; --faint:#767d85;
+    --rule:#2f343a; --rule2:#252a2f;
+    --asus:#e4936a; --lin:#5fb3c0; --warn:#dd8585;
+    --asus-bg:#2a1e16; --lin-bg:#152a2e; --warn-bg:#2b1a1a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:15px;line-height:1.68;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding-block:44px 90px;padding-left:20px;padding-right:20px}
+
+  header{margin-bottom:34px}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+          color:var(--faint);margin:0 0 14px}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,5.6vw,46px);line-height:1.1;
+     margin:0 0 14px;letter-spacing:-.02em;text-wrap:balance}
+  .lede{color:var(--soft);font-size:15.5px;margin:0;max-width:62ch}
+  .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:16px;
+        display:flex;gap:16px;flex-wrap:wrap}
+
+  section{margin-top:46px}
+  h2{font-family:var(--display);font-weight:700;font-size:21px;margin:0 0 6px;letter-spacing:-.01em}
+  h3{font-family:var(--display);font-weight:700;font-size:16px;margin:24px 0 8px}
+  .sub{color:var(--soft);font-size:13.5px;margin:0 0 18px;max-width:66ch}
+
+  /* 判決區：標題色與 mono 標籤標示身分，不用任何色條 */
+  .verdict{background:var(--panel);border:1px solid var(--rule);padding:21px 22px;margin:24px 0}
+  .verdict h3{margin:0 0 10px;font-size:17px;color:var(--lin);
+              font-family:var(--display);font-weight:700}
+  .verdict h3::before{content:"判斷";font-family:var(--mono);font-size:10px;font-weight:600;
+              letter-spacing:.12em;color:var(--lin);background:var(--lin-bg);
+              padding:3px 7px;margin-right:10px;vertical-align:2px}
+  .verdict p{margin:0 0 9px;font-size:14px}
+  .verdict p:last-child{margin:0}
+  .verdict.bad h3{color:var(--warn)}
+  .verdict.bad h3::before{content:"風險";color:var(--warn);background:var(--warn-bg)}
+
+  /* 雙欄對照：用帶色的標題列區分歸屬，不用邊框色條 */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  @media(max-width:660px){ .duo{grid-template-columns:1fr} }
+  .side{background:var(--panel);border:1px solid var(--rule);padding:0;overflow:hidden}
+  .side .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+             display:block;padding:9px 18px;font-weight:600}
+  .side.a .who{color:var(--asus);background:var(--asus-bg)}
+  .side.b .who{color:var(--lin);background:var(--lin-bg)}
+  .side p{margin:0;padding:0 18px 13px;font-size:13.5px}
+  .side p:first-of-type{padding-top:15px}
+
+  /* 數據磚 */
+  .bricks{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;
+          background:var(--rule);border:1px solid var(--rule);margin:16px 0}
+  .brick{background:var(--panel);padding:15px 14px}
+  .brick .v{font-family:var(--display);font-weight:800;font-size:25px;line-height:1.05;display:block;
+            font-variant-numeric:tabular-nums}
+  .brick .k{font-size:11px;color:var(--faint);margin-top:6px;display:block;line-height:1.45}
+  .brick.a .v{color:var(--asus)}
+  .brick.b .v{color:var(--lin)}
+  .brick.w .v{color:var(--warn)}
+
+  .tw{overflow-x:auto;border-top:2px solid var(--ink);margin-bottom:8px}
+  table{border-collapse:collapse;width:100%;min-width:660px;font-size:13.5px}
+  th{text-align:left;font-family:var(--mono);font-weight:600;font-size:10.5px;letter-spacing:.08em;
+     text-transform:uppercase;color:var(--faint);padding:10px 12px 10px 0;
+     border-bottom:1px solid var(--rule)}
+  td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule2);vertical-align:top}
+  tr:last-child td{border-bottom:1px solid var(--rule)}
+  .num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--mono)}
+  .b{font-weight:650}
+  td.dim{font-family:var(--display);font-weight:700}
+  .yes{color:var(--lin);font-weight:700}
+  .no{color:var(--warn);font-weight:700}
+  .mid{color:var(--faint);font-weight:700}
+
+  .note{background:var(--warn-bg);border:1px solid var(--warn);padding:16px 18px;
+        font-size:13.5px;line-height:1.75;margin:18px 0}
+  .note b{color:var(--warn)}
+  .ok{background:var(--lin-bg);border:1px solid var(--lin);padding:16px 18px;
+      font-size:13.5px;line-height:1.75;margin:18px 0}
+  .ok b{color:var(--lin)}
+
+  .quote{border-left:3px solid var(--rule);padding:4px 0 4px 16px;margin:14px 0;
+         color:var(--soft);font-size:14px}
+  .quote cite{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);
+              margin-top:7px;font-style:normal}
+
+  .src{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:7px}
+  footer{margin-top:58px;padding-top:20px;border-top:1px solid var(--rule);
+         font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.8}
+  a{color:var(--lin);word-break:break-all}
+  .src a{margin-right:2px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+  <p class="kicker">自有樂器品牌 ／ 原型機規格盤點</p>
+  <h1>電鋼琴與底座的實測數據</h1>
+  <p class="lede">原型機拆成「電鋼琴本體」與「變形底座」兩塊，這份把兩邊的重量、尺寸、電池、材質、可不可以移動全部盤點。來源都是原廠規格頁或零售頁，<b>標「推算」的是我算的，標「未驗證」的是賣家自述</b>。</p>
+  <p class="meta">
+    <span>製表 2026-10-01</span>
+    <span>來源 原廠規格頁、零售商頁面</span>
+    <span>重抓核對 Yamaha P-145／P-225、Roland FP-10／FP-30X／FP-E50</span>
+  </p>
+</header>
+
+<div class="verdict">
+<h3>先講結論</h3>
+<p><b>琴體不是問題，底座才是。</b>重錘便攜琴 11–17kg，你預算的琴體 20–23kg 餘裕夠。但原廠琴架就要 7–11kg，而且只負責站著；你的底座還要加旋轉、鎖定、連動支撐腳、升降柱，<b>總重 35kg 的上限比原本估的更緊</b>。</p>
+<p><b>市面上沒有「自己會移動」的重錘電鋼琴</b>，原廠琴架全部沒有腳輪。可移動的只有後加配件，或靠超輕（折疊、磁吸、捲簾）換來的。這是空位，也代表沒有現成參考。</p>
+<p><b>大廠沒有任何一台把鋰電池內建進重錘琴。</b>現成最長續航是 Casio CDP-S 系列 6 顆 AA 約 13 小時；內建鋰電池的只有雜牌，續航與重錘都是賣家自述。</p>
+</div>
+
+<section>
+<h2>1　琴體：重量與尺寸</h2>
+<p class="sub">機身本體，不含琴架。長度都在 1.3 米上下，深度只有 23–38cm，厚度 10–17cm。</p>
+<div class="tw"><table>
+<thead><tr><th>型號</th><th>重量</th><th>長×深×高 mm</th><th>電源</th></tr></thead>
+<tbody>
+<tr><td class="b">Yamaha P-145 / P-225</td><td class="num">11.5kg（另一色款 11.1kg）</td><td class="num">1326×272×129</td><td>規格表只列 AC 變壓器</td></tr>
+<tr><td class="b">Roland FP-10</td><td class="num">12.6kg</td><td class="num">1284×258×140</td><td>規格頁沒列電池</td></tr>
+<tr><td class="b">Roland FP-30X</td><td class="num">14.8kg</td><td class="num">1300×284×151</td><td>規格頁沒列電池</td></tr>
+<tr><td class="b">Roland FP-E50</td><td class="num">17.1kg</td><td class="num">1300×322×174</td><td>只有電源線</td></tr>
+<tr><td class="b">Kawai ES120</td><td class="num">12.5kg（官網另一處寫 12kg）</td><td class="num">官網沒抓到</td><td>只有電源線</td></tr>
+<tr><td class="b">Casio PX-S1100</td><td class="num">11.2kg（不含電池）</td><td class="num">1322×232×102</td><td>6 顆 AA</td></tr>
+<tr><td class="b">Casio PX-S3100</td><td class="num">11.4kg（不含電池）</td><td class="num">1322×232×102</td><td>6 顆 AA</td></tr>
+<tr><td class="b">Yamaha P-525（高階）</td><td class="num">22.0kg</td><td class="num">1336×376×145</td><td>沒查電池</td></tr>
+<tr><td class="b">Yamaha YDP-145（立式櫃體）</td><td class="num">37–42kg（五種款式）</td><td class="num">約 1353–1357×296–422×792–849</td><td>沒查電池</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2>2　電池：含電池重量、尺寸、續航</h2>
+<p class="sub">沒有任何原廠列「含電池重量」，全部寫「不含電池」。含電池重量用 Korg 官網的數字推算：6 顆 AA 約 +200g。</p>
+
+<h3>A　重錘鍵（有擊錘）＋電池</h3>
+<div class="tw"><table>
+<thead><tr><th>型號</th><th>不含電池</th><th>含電池</th><th>長×深×高 mm</th><th>電池</th><th>續航</th></tr></thead>
+<tbody>
+<tr><td class="b">Casio CDP-S110 / S160</td><td class="num">10.5kg</td><td class="num">約 10.7kg（推算）</td><td class="num">1322×232×99</td><td>6 顆 AA</td><td class="yes">約 13 小時</td></tr>
+<tr><td class="b">Casio PX-S1100</td><td class="num">11.2kg</td><td class="num">約 11.4kg（推算）</td><td class="num">1322×232×102</td><td>6 顆 AA</td><td class="num">約 4 小時</td></tr>
+<tr><td class="b">Casio PX-S3100</td><td class="num">11.4kg</td><td class="num">約 11.6kg（推算）</td><td class="num">1322×232×102</td><td>6 顆 AA</td><td class="num">約 2 小時</td></tr>
+<tr><td class="b">Konix PH88Q（雜牌）</td><td class="num">14.4kg（見下）</td><td>沒寫</td><td class="num">1287×234×105</td><td>內建 7.4V 1800mAh 鋰電池</td><td class="mid">沒寫</td></tr>
+<tr><td class="b">Rhymo FP88H（雜牌折疊琴）</td><td class="num">約 9kg（亞馬遜寫約 20 磅）</td><td>沒寫</td><td>沒找到</td><td>內建鋰電池</td><td class="num">零售頁寫 10 小時</td></tr>
+</tbody></table></div>
+
+<h3>B　半配重或無擊錘＋電池</h3>
+<div class="tw"><table>
+<thead><tr><th>型號</th><th>不含電池</th><th>含電池</th><th>長×深×高 mm</th><th>電池</th><th>續航</th></tr></thead>
+<tbody>
+<tr><td class="b">Korg Liano</td><td class="num">6.0kg（美）／6.2kg（英）</td><td class="num">官方寫 +約 200g</td><td class="num">1282×290×73</td><td>6 顆 AA</td><td class="num">約 8 小時</td></tr>
+<tr><td class="b">Roland GO:PIANO88 新版 GO-88PX</td><td class="num">5.8kg</td><td class="num">約 6.1kg（推算，8 顆 AA）</td><td>沒抓到</td><td>8 顆 AA</td><td class="num">鹼性 6 小時／鎳氫 7 小時</td></tr>
+<tr><td class="b">Roland GO:PIANO88 舊版 GO-88P</td><td class="num">7.0kg</td><td>沒寫</td><td class="num">1283×291×87</td><td>6 顆 D 電池</td><td class="num">鹼性約 20 小時</td></tr>
+<tr><td class="b">Alesis Recital</td><td class="num">7.1kg</td><td>沒寫</td><td class="num">1283×291×87</td><td>6 顆 D 電池</td><td class="mid">沒寫</td></tr>
+<tr><td class="b">Donner DEP-1（雜牌）</td><td class="num">7kg</td><td>沒寫</td><td class="num">約 1270×221×66（官網寫 50"×8.7"×2.6"，換算）</td><td>內建鋰電池</td><td class="num">標示最長 10 小時</td></tr>
+</tbody></table></div>
+
+<div class="note"><b>三個要小心的數字</b><br>
+① <b>Konix PH88Q 的 14.4kg 不可靠</b>：來自阿里巴巴頁面，旁邊的外箱 146×32.6×18.2cm 寫在同一欄，很可能是含包裝的毛重。<br>
+② <b>雜牌的重錘與電池全是賣家自述</b>，沒有獨立驗證；PH88Q 也沒找到續航小時數。<br>
+③ <b>Casio S1100 與 S3100 續航差一倍</b>：S1100 的 4 小時有 Casio 紐西蘭規格頁與使用手冊，S3100 的 2 小時是 Casio 官網，兩個都是原廠數字，差距是真的。</div>
+</section>
+
+<section>
+<h2>3　底座：重量、尺寸、能不能移動</h2>
+<p class="sub">原廠琴架全部沒有腳輪（規格頁與商品頁都沒提到，是讀規格的判斷，沒有逐一確認實物）。</p>
+<div class="tw"><table>
+<thead><tr><th>琴架</th><th>配哪台琴</th><th>重量</th><th>長×深×高 mm</th><th>材質</th><th>腳輪</th></tr></thead>
+<tbody>
+<tr><td class="b">Yamaha L-200</td><td>P-225</td><td class="num">9.0kg</td><td class="num">1323×318×648</td><td>規格頁沒寫</td><td>沒提</td></tr>
+<tr><td class="b">Yamaha L-300</td><td>P-S500、DGX-670</td><td class="num">9.0kg（日本官網）／10.9kg（零售商）</td><td class="num">1344×430×644（日本官網）</td><td>零售商寫 MDF＋鋼</td><td>沒提</td></tr>
+<tr><td class="b">Roland KSC-70</td><td>FP-30X</td><td class="num">8.9kg</td><td class="num">1300×284×775</td><td>木，最大承重 100kg</td><td>沒提</td></tr>
+<tr><td class="b">Roland KSCFP10</td><td>FP-10</td><td class="num">約 7.3kg（16 磅）</td><td class="num">約 1287×260×660</td><td>沒寫</td><td>沒提</td></tr>
+<tr><td class="b">Roland KSFE50</td><td>FP-E50</td><td class="num">10.2kg</td><td class="num">1300×357×779</td><td>木</td><td>沒提</td></tr>
+<tr><td class="b">Casio CS-68P</td><td>PX-S1100、PX-S3100</td><td class="num">11.1kg（Casio 新加坡）／11.3kg（奧地利零售商）</td><td class="num">約 1320×370×660</td><td>木</td><td>沒提</td></tr>
+<tr><td class="b">Casio CS-470P（含三踏板）</td><td>CDP-S160</td><td class="num">9kg（說明書）／7.3kg（澳洲零售商）</td><td class="num">1270×370×650</td><td>木</td><td>沒提</td></tr>
+<tr><td class="b">Kawai HML-2</td><td>ES120</td><td class="num">7.5kg</td><td class="num">1300×270×650</td><td>木</td><td>沒提</td></tr>
+</tbody></table></div>
+
+<h3>X 型架（可摺疊、鋼管）</h3>
+<div class="tw"><table>
+<thead><tr><th>型號</th><th>重量</th><th>尺寸</th><th>承重</th><th>腳輪</th></tr></thead>
+<tbody>
+<tr><td class="b">Roland KS-20X</td><td class="num">6.5kg</td><td>沒抓到</td><td class="num">最大 75kg</td><td>沒提</td></tr>
+<tr><td class="b">Roland KS-11Z</td><td>沒抓到</td><td class="num">566×620×645–917 mm，寬度可調 566–940</td><td class="num">最大 100kg</td><td>沒提</td></tr>
+</tbody></table></div>
+
+<h3>可以移動的現成方案（都是後加配件）</h3>
+<div class="tw"><table>
+<thead><tr><th>品名</th><th>重量</th><th>尺寸</th><th>材質</th><th>承重</th><th>說明</th></tr></thead>
+<tbody>
+<tr><td class="b">Pyle PKSTZ88</td><td>沒寫</td><td class="num">高 22–35.4 吋、寬 22.8–39.8 吋</td><td>鋼</td><td class="num">85 磅（約 38.5kg）</td><td>帶鎖定腳輪的 X 型架</td></tr>
+<tr><td class="b">Musisca Castor-Glide</td><td class="num">一對 11.3kg</td><td class="num">每個 63×27cm</td><td>鋼＋防滑橡膠墊</td><td class="num">150kg</td><td>帶煞車，只墊高 1.8cm，專給立式櫃體的腳</td></tr>
+<tr><td class="b">Jansen J-4004</td><td>沒寫</td><td class="num">寬 47–68 吋、深 15–22 吋</td><td>鋼管，烤漆</td><td>沒寫</td><td>雙輪後輪＋鎖定前輪，只抬高 1¼ 吋，可長期放在上面</td></tr>
+</tbody></table></div>
+
+<div class="note"><b>更正一個我之前的錯誤推算</b><br>先前用「琴加架總重 − 琴重」推出 Roland KSC-70＋KPD-70 約 8.2kg，但 KSC-70 單獨就是 8.9kg，那個推算不可靠，以上表的直接規格為準。KSCFP10 的 7.3kg 與當初推的 7.4kg 一致。</div>
+</section>
+
+<section>
+<h2>4　材質</h2>
+<div class="tw"><table>
+<thead><tr><th>部位</th><th>材質</th><th>依據</th></tr></thead>
+<tbody>
+<tr><td class="b">立式櫃體</td><td>MDF 密集板，不是實木</td><td>Yamaha YDP-165、Kawai CN201 兩個品牌的評測都這樣寫</td></tr>
+<tr><td class="b">便攜琴機殼</td><td>原廠沒寫，一般是塑膠</td><td class="mid">我的判斷，沒查證</td></tr>
+<tr><td class="b">琴鍵</td><td>多數塑膠；Yamaha P-525 的白鍵是木頭（黑鍵不是）</td><td>Yamaha P-525 規格頁</td></tr>
+<tr><td class="b">琴架</td><td>多數木頭；Yamaha L-300 為 MDF＋鋼；X 型架為鋼管</td><td>見第 3 節；X 型架是鋼管為我的知識，沒找到規格頁直接證明</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2>5　擊錘：不是每台都有</h2>
+<div class="duo">
+<div class="side a"><span class="who">有擊錘（重配重鍵）</span>
+<p>Yamaha GHS／GHC、Roland PHA-4、Kawai Responsive Hammer Compact、Casio Smart Scaled Hammer Action、NUX NPK-20。重量 11–17kg。</p></div>
+<div class="side b"><span class="who">沒有擊錘（半配重或合成器鍵）</span>
+<p>Roland GO:PIANO88（MusicRadar 評測與 1st-note 都歸為半配重）、Donner DEP-1、Korg Liano（軟觸鍵盤）、Alesis Recital。也是最輕的一群，5.8–7.1kg。</p></div>
+</div>
+<div class="ok"><b>跟立放問題接得上</b>：沒有擊錘就沒有「立放傷鍵盤」的問題。代價是它會被歸類成 keyboard 而不是 piano。要不要走這條，是定位問題，不是技術問題。</div>
+</section>
+
+<section>
+<h2>6　有沒有「自己會移動」的電鋼琴</h2>
+<p><b>沒找到原廠就自帶滑輪的款式。</b>找到的「能移動」都靠輕：</p>
+<div class="tw"><table>
+<thead><tr><th>類型</th><th>例子</th><th>重量</th><th>為什麼不是你要的</th></tr></thead>
+<tbody>
+<tr><td class="b">折疊琴</td><td>Rhymo FP88H、Carry-on FP88</td><td class="num">約 9kg／1.6kg</td><td>排線過鉸鏈，是結構弱點</td></tr>
+<tr><td class="b">磁吸拆分</td><td>Konix Miro Plus</td><td class="num">3.35kg</td><td>可拆式鍵盤，不是一體成型</td></tr>
+<tr><td class="b">捲簾琴</td><td>Vevor、Konix Roll Up</td><td class="num">1.48kg</td><td>矽膠鍵，不是鋼琴手感</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2>7　對設計的影響</h2>
+<div class="verdict">
+<h3>底座預算比預想的緊</h3>
+<p>琴體 11–17kg、原廠琴架至少 7–11kg，這是<b>沒有任何機構的下限</b>。你的底座還要加旋轉鉸鏈、鎖定、連動支撐腳、升降柱，總重逼近 35kg 上限。這個預算要在找廠前先拍板。</p>
+<p>原廠琴架大多是木頭。要做可旋轉的承重結構，木頭不適合，仍建議用鋁。</p>
+<p>電池本身不重（6 顆 AA 約 200g），卡的是結構重量，不是電池。內建鋰電池要自己設計；Konix 的 7.4V 1800mAh（約 13.3Wh）可當容量下限的參考，但它沒寫續航，不能當實測數據。</p>
+</div>
+<div class="verdict bad">
+<h3>沒有現成參考案例</h3>
+<p>沒有「底座自己會走、同時是琴架」的產品，也沒有大廠內建電池的重錘琴。這是空位，同時代表所有數據都要自己驗證。</p>
+</div>
+</section>
+
+<section>
+<h2>來源</h2>
+<p class="sub">這次大部分靠搜尋摘要；Yamaha P-145／P-225 與 Roland FP-10／FP-30X／FP-E50 規格頁有重抓全文核對，Casio 官網頁重抓被擋，Roland GO:PIANO88 舊版、各琴架為搜尋摘要。</p>
+<h3>琴體</h3>
+<p class="src">
+<a href="https://uk.yamaha.com/en/musical-instruments/pianos/products/p-series/p-145/specs.html">Yamaha P-145</a> ・
+<a href="https://usa.yamaha.com/products/musical_instruments/pianos/p_series/p-225/specs.html">Yamaha P-225</a> ・
+<a href="https://usa.yamaha.com/products/musical_instruments/pianos/p_series/p-525/specs.html">Yamaha P-525</a> ・
+<a href="https://usa.yamaha.com/products/musical_instruments/pianos/arius/ydp-145/specs.html">Yamaha YDP-145</a> ・
+<a href="https://www.roland.com/global/products/fp-10/specs/">Roland FP-10</a> ・
+<a href="https://www.roland.com/global/products/fp-30x/specs/">Roland FP-30X</a> ・
+<a href="https://www.roland.com/global/products/fp-e50/specifications/">Roland FP-E50</a> ・
+<a href="https://www.kawai-global.com/product/es120/">Kawai ES120</a></p>
+<h3>電池</h3>
+<p class="src">
+<a href="https://www.casio.com/intl/electronic-musical-instruments/product.CDP-S110BK/">Casio CDP-S110</a> ・
+<a href="https://www.casiomusic.co.nz/pages/cdp-s110bk-specifications">Casio CDP-S110（紐西蘭）</a> ・
+<a href="https://www.casiomusic.co.nz/pages/cdp-s160bk-specifications">Casio CDP-S160（紐西蘭）</a> ・
+<a href="https://www.casiomusic.co.nz/products/px-s1100bk">Casio PX-S1100（紐西蘭）</a> ・
+<a href="https://cf3.zzounds.com/media/PXS1100_usersguidebasics_EN-f18c4fde911ba49fe2778e2ba70b6e20.pdf">PX-S1100 使用手冊</a> ・
+<a href="https://www.casio.com/intl/electronic-musical-instruments/product.PX-S3100BK/">Casio PX-S3100</a> ・
+<a href="https://www.korg.com/us/products/digitalpianos/liano/specifications.php">Korg Liano 規格</a> ・
+<a href="https://www.korg.com/us/products/digitalpianos/liano/">Korg Liano 介紹</a> ・
+<a href="https://www.roland.com/us/products/gopiano_go-88px/specifications/">Roland GO:PIANO88 新版</a> ・
+<a href="https://www.roland.com/us/products/gopiano_go-88p/">Roland GO:PIANO88 舊版</a> ・
+<a href="https://www.alesis.com/products/view/recital">Alesis Recital</a> ・
+<a href="https://e-catalog.com/ALESIS-RECITAL-88.htm">Alesis Recital 尺寸重量</a> ・
+<a href="https://us.donnermusic.com/products/donner-piano-keyboard-88-keys-beginner-digital-keyboard-piano-velocity-sensitive-keys-portable-electric-piano-with-stand-sustain-pedal-carrying-case-and-keyboard-stickers-dep-1">Donner DEP-1</a> ・
+<a href="https://www.konixtech.com/digital-piano-ph88q-88-weighted-keyboards-music-electronic-piano-product/">Konix PH88Q</a> ・
+<a href="https://www.alibaba.com/product-detail/Buy-New-Quality-Yamahas-Konix-Piano_1601278608458.html">Konix PH88Q（阿里巴巴）</a> ・
+<a href="https://www.amazon.com/Rhymo-FP88H-Folding-Weighted-Digital/dp/B0GX55PRZM">Rhymo FP88H</a> ・
+<a href="https://www.dealnews.com/products/Rhymo/Rhymo-Folding-88-Key-Weighted-Hammer-Action-Digital-Piano/533073.html">Rhymo FP88H（dealnews）</a></p>
+<h3>底座</h3>
+<p class="src">
+<a href="https://usa.yamaha.com/products/musical_instruments/pianos/accessories/l-200/specs.html">Yamaha L-200</a> ・
+<a href="https://jp.yamaha.com/products/musical_instruments/pianos/accessories/kb_stands/l-300/specs.html">Yamaha L-300（日本）</a> ・
+<a href="https://www.muziker.co.uk/yamaha-l-300-black">Yamaha L-300（零售商）</a> ・
+<a href="https://www.merriammusic.com/product/roland-ksc-70-bk/">Roland KSC-70</a> ・
+<a href="https://www.sweetwater.com/store/detail/KSCFP10BK--roland-stand-for-fp-10-bk-black">Roland KSCFP10</a> ・
+<a href="https://www.recordcase.de/roland-ksfe50-bk">Roland KSFE50</a> ・
+<a href="https://www.roland.com/global/products/ks-20x/specifications/">Roland KS-20X</a> ・
+<a href="https://www.roland.com/global/products/ks-11z/specifications/">Roland KS-11Z</a> ・
+<a href="https://www.musik-ebert.at/en/products/casio-cs-68p-stander-fur-px-s1000">Casio CS-68P（奧地利）</a> ・
+<a href="https://casiomusic.sg/products/cs-68p-px-s-piano-stand">Casio CS-68P（新加坡）</a> ・
+<a href="https://manuals.plus/casio/cs-470p-piano-stand-with-3-pedals-manual">Casio CS-470P 說明書</a> ・
+<a href="https://www.musicjunction.com.au/products/casio-cs470p-wooden-stand-with-fixed-tri-pedal-board">Casio CS-470P（澳洲）</a> ・
+<a href="https://www.kawai-global.com/product/hml-2/">Kawai HML-2</a> ・
+<a href="https://pyleusa.com/products/pkstz88">Pyle 帶輪琴架</a> ・
+<a href="https://www.chamberlainmusic.com/products/castor-glide">Musisca Castor-Glide</a> ・
+<a href="https://jansenpianobenches.com/products/jansen-digital-piano-dolly-fully-adjustable">Jansen J-4004</a></p>
+<h3>材質與鍵盤分類</h3>
+<p class="src">
+<a href="https://bestdigitalpiano.net/reviews/yamaha-ydp-165-vs-kawai-cn201/">櫃體材質評測</a> ・
+<a href="https://1st-note.com/en/key-actions/">琴鍵分類</a> ・
+<a href="https://www.musicradar.com/reviews/roland-gopiano-88-review">MusicRadar GO:PIANO 88 評測</a></p>
+</section>
+
+<footer>
+  自有樂器品牌 21_自有樂器品牌 ／ 原型機規格盤點 ／ 2026-10-01<br>
+  本頁不收錄、不索引（noindex、robots Disallow）。
+</footer>
+
+</div>
+</body>
+</html>
