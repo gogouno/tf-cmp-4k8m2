@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>變形底座結構規格</title>
+<style>
+  :root{
+    --bg:#f2f0ec; --panel:#fbfaf8; --ink:#1a1d21; --soft:#565d66; --faint:#8b929a;
+    --rule:#ddd9d2; --rule2:#eae7e1;
+    --asus:#b4541f;      /* 鏽橘 = 華碩側 */
+    --lin:#15616d;       /* 深青 = 林的產品側 */
+    --warn:#8f2f2f;
+    --asus-bg:#f8efe8; --lin-bg:#e7f0f1; --warn-bg:#f9ecec;
+    --display:"Archivo",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+    --bg:#15171a; --panel:#1d2024; --ink:#e8e6e2; --soft:#a7adb5; --faint:#767d85;
+    --rule:#2f343a; --rule2:#252a2f;
+    --asus:#e4936a; --lin:#5fb3c0; --warn:#dd8585;
+    --asus-bg:#2a1e16; --lin-bg:#152a2e; --warn-bg:#2b1a1a;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#15171a; --panel:#1d2024; --ink:#e8e6e2; --soft:#a7adb5; --faint:#767d85;
+    --rule:#2f343a; --rule2:#252a2f;
+    --asus:#e4936a; --lin:#5fb3c0; --warn:#dd8585;
+    --asus-bg:#2a1e16; --lin-bg:#152a2e; --warn-bg:#2b1a1a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:15px;line-height:1.68;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding-block:44px 90px;padding-left:20px;padding-right:20px}
+
+  header{margin-bottom:34px}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+          color:var(--faint);margin:0 0 14px}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,5.6vw,46px);line-height:1.1;
+     margin:0 0 14px;letter-spacing:-.02em;text-wrap:balance}
+  .lede{color:var(--soft);font-size:15.5px;margin:0;max-width:62ch}
+  .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:16px;
+        display:flex;gap:16px;flex-wrap:wrap}
+
+  section{margin-top:46px}
+  h2{font-family:var(--display);font-weight:700;font-size:21px;margin:0 0 6px;letter-spacing:-.01em}
+  h3{font-family:var(--display);font-weight:700;font-size:16px;margin:24px 0 8px}
+  .sub{color:var(--soft);font-size:13.5px;margin:0 0 18px;max-width:66ch}
+
+  /* 判決區：標題色與 mono 標籤標示身分，不用任何色條 */
+  .verdict{background:var(--panel);border:1px solid var(--rule);padding:21px 22px;margin:24px 0}
+  .verdict h3{margin:0 0 10px;font-size:17px;color:var(--lin);
+              font-family:var(--display);font-weight:700}
+  .verdict h3::before{content:"判斷";font-family:var(--mono);font-size:10px;font-weight:600;
+              letter-spacing:.12em;color:var(--lin);background:var(--lin-bg);
+              padding:3px 7px;margin-right:10px;vertical-align:2px}
+  .verdict p{margin:0 0 9px;font-size:14px}
+  .verdict p:last-child{margin:0}
+  .verdict.bad h3{color:var(--warn)}
+  .verdict.bad h3::before{content:"風險";color:var(--warn);background:var(--warn-bg)}
+
+  /* 雙欄對照：用帶色的標題列區分歸屬，不用邊框色條 */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  @media(max-width:660px){ .duo{grid-template-columns:1fr} }
+  .side{background:var(--panel);border:1px solid var(--rule);padding:0;overflow:hidden}
+  .side .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+             display:block;padding:9px 18px;font-weight:600}
+  .side.a .who{color:var(--asus);background:var(--asus-bg)}
+  .side.b .who{color:var(--lin);background:var(--lin-bg)}
+  .side p{margin:0;padding:0 18px 13px;font-size:13.5px}
+  .side p:first-of-type{padding-top:15px}
+
+  /* 數據磚 */
+  .bricks{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;
+          background:var(--rule);border:1px solid var(--rule);margin:16px 0}
+  .brick{background:var(--panel);padding:15px 14px}
+  .brick .v{font-family:var(--display);font-weight:800;font-size:25px;line-height:1.05;display:block;
+            font-variant-numeric:tabular-nums}
+  .brick .k{font-size:11px;color:var(--faint);margin-top:6px;display:block;line-height:1.45}
+  .brick.a .v{color:var(--asus)}
+  .brick.b .v{color:var(--lin)}
+  .brick.w .v{color:var(--warn)}
+
+  .tw{overflow-x:auto;border-top:2px solid var(--ink);margin-bottom:8px}
+  table{border-collapse:collapse;width:100%;min-width:660px;font-size:13.5px}
+  th{text-align:left;font-family:var(--mono);font-weight:600;font-size:10.5px;letter-spacing:.08em;
+     text-transform:uppercase;color:var(--faint);padding:10px 12px 10px 0;
+     border-bottom:1px solid var(--rule)}
+  td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule2);vertical-align:top}
+  tr:last-child td{border-bottom:1px solid var(--rule)}
+  .num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--mono)}
+  .b{font-weight:650}
+  td.dim{font-family:var(--display);font-weight:700}
+  .yes{color:var(--lin);font-weight:700}
+  .no{color:var(--warn);font-weight:700}
+  .mid{color:var(--faint);font-weight:700}
+
+  .note{background:var(--warn-bg);border:1px solid var(--warn);padding:16px 18px;
+        font-size:13.5px;line-height:1.75;margin:18px 0}
+  .note b{color:var(--warn)}
+  .ok{background:var(--lin-bg);border:1px solid var(--lin);padding:16px 18px;
+      font-size:13.5px;line-height:1.75;margin:18px 0}
+  .ok b{color:var(--lin)}
+
+  .quote{border-left:3px solid var(--rule);padding:4px 0 4px 16px;margin:14px 0;
+         color:var(--soft);font-size:14px}
+  .quote cite{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);
+              margin-top:7px;font-style:normal}
+
+  .src{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:7px}
+  footer{margin-top:58px;padding-top:20px;border-top:1px solid var(--rule);
+         font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.8}
+  a{color:var(--lin);text-decoration:underline;text-underline-offset:2px}
+  td.nm a,.nm a{font-weight:650;color:var(--ink);text-decoration:underline;text-decoration-color:var(--lin);text-underline-offset:3px}
+  td.nm a:hover{color:var(--lin)}
+  td small{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-weight:400}
+  .nm small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:3px;font-weight:400}
+  .nm small a{font-weight:400;color:var(--faint);text-decoration-color:var(--rule)}
+  .part{margin-top:58px;padding-top:22px;border-top:2px solid var(--ink)}
+  .part h2{font-size:26px}
+  .def{background:var(--panel);border:1px solid var(--rule);padding:16px 18px;font-size:13.5px;margin:14px 0}
+  .def b{color:var(--lin)}
+  /* 手機：表格改成卡片，不用橫向捲動 */
+  @media(max-width:700px){
+    .tw{border-top:0;overflow:visible}
+    table{min-width:0;display:block}
+    thead{display:none}
+    tbody{display:block}
+    tr{display:block;background:var(--panel);border:1px solid var(--rule);margin:0 0 10px;padding:12px 14px}
+    td{display:flex;gap:12px;justify-content:space-between;padding:5px 0;border:0;font-size:13px}
+    td::before{content:attr(data-l);font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--faint);flex:0 0 5.5em;padding-top:2px}
+    td.nm{display:block;font-size:15px;padding:0 0 8px;border-bottom:1px solid var(--rule2);margin-bottom:4px}
+    td.nm::before{content:none}
+    td>*:last-child{text-align:right}
+    td.nm>*:last-child{text-align:left}
+    .num{white-space:normal}
+  }
+
+  figure{margin:18px 0 26px;background:var(--panel);border:1px solid var(--rule);padding:14px 10px 6px}
+  figure svg{width:100%;height:auto;display:block}
+  figcaption{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:8px;padding:0 6px;line-height:1.6}
+  svg .k{fill:none;stroke:var(--ink);stroke-width:1.4}
+  svg .fill{fill:var(--panel);stroke:var(--ink);stroke-width:1.4}
+  svg .col{fill:var(--rule);stroke:var(--ink);stroke-width:1.2}
+  svg .colb{fill:none;stroke:var(--faint);stroke-width:1.2;stroke-dasharray:5,4}
+  svg .ghost{fill:none;stroke:var(--faint);stroke-width:1.2;stroke-dasharray:5,4}
+  svg .keys{stroke:var(--ink);stroke-width:4;stroke-dasharray:3,3}
+  svg .keys2{fill:var(--ink);stroke:none}
+  svg .axis{fill:var(--warn);stroke:var(--panel);stroke-width:1.5}
+  svg .ground{stroke:var(--faint);stroke-width:1;stroke-dasharray:2,3}
+  svg .dim{stroke:var(--lin);stroke-width:1}
+  svg .ext{stroke:var(--lin);stroke-width:.8;stroke-dasharray:3,3}
+  svg .arr{fill:var(--lin);stroke:none}
+  svg .dt{font-family:var(--mono);font-size:11px;fill:var(--lin)}
+  svg .t,svg .lab{font-family:var(--sans);font-size:11.5px;fill:var(--soft)}
+  svg .lab2{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--warn)}
+  svg .h{font-family:var(--display);font-size:15px;font-weight:700;fill:var(--ink)}
+  svg .sub{font-family:var(--sans);font-size:11.5px;fill:var(--faint)}
+  svg .arc{fill:none;stroke:var(--warn);stroke-width:2}
+  svg .plate{fill:none;stroke:var(--lin);stroke-width:2.2}
+  svg .boss{fill:var(--lin-bg);stroke:var(--lin);stroke-width:2}
+  svg .hole{fill:var(--panel);stroke:var(--ink);stroke-width:1}
+  svg .pad{fill:var(--warn-bg);stroke:var(--warn);stroke-width:1.4}
+  svg .slot{fill:var(--warn-bg);stroke:var(--warn);stroke-width:1.2}
+  svg .tip{fill:none;stroke:var(--warn);stroke-width:1.6}
+  svg .com{fill:var(--lin);stroke:var(--panel);stroke-width:1.5}
+  svg .com2{stroke:var(--lin);stroke-width:1}
+  svg .comring{fill:none;stroke:var(--lin);stroke-width:1;stroke-dasharray:3,3}
+  svg .force{fill:none;stroke:var(--warn);stroke-width:2.2}
+  .req td:first-child{font-weight:650;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <p class="kicker">自有樂器品牌 ／ SOYOGI ／ 底座結構規格</p>
+  <h1>變形底座：結構、尺寸、工程圖</h1>
+  <p class="lede">給捷昌看的版本。路線＝<b>A 背軸直轉</b>：琴繞自己的深度軸立起來，再用立柱旋轉盤轉 90° 讓鍵盤朝前。所有尺寸是設計值，<b>最終琴的尺寸由你的琴廠定</b>，現場帶的 YDP-123 只用來示範手感和重量。</p>
+  <p class="meta"><span>2026-10-03</span><span>單位 cm，除非另註</span><span>傾倒門檻為估算，整機重量以實秤為準</span></p>
+</header>
+
+<div class="verdict">
+<h3>先講結論</h3>
+<p><b>一個機構就夠。</b>琴背面中央一個樞軸，軸穿過重心，立起來零力矩單手；鍵盤要朝前就轉旋轉盤。不用翻面鉸鏈、不用氣壓棒。</p>
+<p><b>你擔心的側翻，數字算過：</b>底座 75×75、整機 44 kg 時，壓琴的最高音或最低音端要 <b>60 kg</b> 才會側翻；水平推拉鍵盤最差方向 <b>15 kg</b>；收納時推琴頂端 <b>8.7 kg</b>。前兩個安全，第三個要靠牆停、鎖輪。</p>
+<p><b>真正的風險不是翻，是晃。</b>琴端壓 10 kg 對樞軸是 59 N·m、對立柱也是。三節柱的接頭間隙會直接變成琴端上下晃，這要捷昌用規格保證（琴端 5 kg 下沉 ≤ 3 mm）。</p>
+</div>
+
+<section>
+<h2>一、動作序列</h2>
+<figure><svg viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="動作序列"><rect x="107.5" y="308.0" width="165.0" height="8.8" rx="0" class="fill"/><circle cx="120.7" cy="321.8" r="8.2" class="k"/><line x1="120.7" y1="313.5" x2="120.7" y2="316.8" class="k"/><circle cx="259.3" cy="321.8" r="8.2" class="k"/><line x1="259.3" y1="313.5" x2="259.3" y2="316.8" class="k"/><line x1="87.5" y1="330.0" x2="292.5" y2="330.0" class="ground"/><rect x="181.2" y="173.2" width="17.6" height="134.8" rx="0" class="col"/><rect x="47.0" y="152.9" width="286.0" height="28.6" rx="0" class="fill"/><line x1="55.0" y1="161.9" x2="325.0" y2="161.9" class="keys"/><circle cx="190.0" cy="167.2" r="5.0" class="axis"/><text x="200.0" y="159.2" class="lab" text-anchor="start">D 軸（垂直紙面）</text><text x="190.0" y="30.0" class="h" text-anchor="middle">① 彈奏：琴水平</text><text x="190.0" y="50.0" class="sub" text-anchor="middle">樞軸穿過琴的重心</text><rect x="437.5" y="308.0" width="165.0" height="8.8" rx="0" class="fill"/><circle cx="450.7" cy="321.8" r="8.2" class="k"/><line x1="450.7" y1="313.5" x2="450.7" y2="316.8" class="k"/><circle cx="589.3" cy="321.8" r="8.2" class="k"/><line x1="589.3" y1="313.5" x2="589.3" y2="316.8" class="k"/><line x1="417.5" y1="330.0" x2="622.5" y2="330.0" class="ground"/><rect x="511.2" y="173.2" width="17.6" height="134.8" rx="0" class="colb"/><rect x="505.7" y="24.2" width="28.6" height="286.0" rx="0" class="fill"/><line x1="514.7" y1="32.2" x2="514.7" y2="302.2" class="keys"/><circle cx="520.0" cy="167.2" r="5.0" class="axis"/><path d="M653.0,137.2 A133,133 0 0 0 550.0,36.2" class="arc" marker-end="url(#ah)"/><text x="623.0" y="84.2" class="lab2" text-anchor="middle">90°</text><text x="520.0" y="30.0" class="h" text-anchor="middle">② 繞 D 軸轉 90°：琴立起來</text><text x="520.0" y="50.0" class="sub" text-anchor="middle">重心不動 → 零力矩，單手。鍵盤此時朝側面</text><text x="540.3" y="207.2" class="lab" text-anchor="start">鍵盤面朝左</text><rect x="767.5" y="117.5" width="165.0" height="165.0" rx="4" class="fill"/><circle cx="850.0" cy="200.0" r="8.8" class="col"/><rect x="835.7" y="126.3" width="28.6" height="59.4" rx="0" class="ghost"/><line x1="850.0" y1="200.0" x2="850.0" y2="156.0" class="ghost"/><rect x="864.3" y="185.7" width="59.4" height="28.6" rx="0" class="fill"/><line x1="850.0" y1="200.0" x2="894.0" y2="200.0" class="k"/><line x1="867.3" y1="190.7" x2="920.7" y2="190.7" class="keys"/><path d="M842.0,142.0 A58,58 0 0 1 908.0,192.0" class="arc" marker-end="url(#ah)"/><text x="880.0" y="152.0" class="lab2" text-anchor="middle">90°</text><text x="850.0" y="30.0" class="h" text-anchor="middle">③ 旋轉盤轉 90°（俯視）</text><text x="850.0" y="50.0" class="sub" text-anchor="middle">琴從立柱前方轉到側邊，鍵盤面朝前</text><text x="850.0" y="298.5" class="lab" text-anchor="middle">▼ 前（彈奏者）</text><text x="894.0" y="228.3" class="lab" text-anchor="middle">鍵盤朝前</text></svg><figcaption>圖 1　① 彈奏。② 琴繞「深度軸 D」（垂直紙面、穿過琴重心）轉 90°，像時鐘指針在立柱前方立起來，此時鍵盤朝側面。③ 俯視：立柱頂的旋轉盤轉 90°，琴從立柱前方移到側邊，鍵盤朝前。<svg width="0" height="0" style="position:absolute"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8f2f2f"/></marker></defs></svg></figcaption></figure>
+</section>
+
+<section>
+<h2>二、彈奏狀態</h2>
+<figure><svg viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="彈奏三視圖"><rect x="156.2" y="375.0" width="187.5" height="10.0" rx="0" class="fill"/><circle cx="171.2" cy="390.6" r="9.4" class="k"/><line x1="171.2" y1="381.2" x2="171.2" y2="385.0" class="k"/><circle cx="328.8" cy="390.6" r="9.4" class="k"/><line x1="328.8" y1="381.2" x2="328.8" y2="385.0" class="k"/><line x1="136.2" y1="400.0" x2="363.8" y2="400.0" class="ground"/><rect x="240.0" y="221.0" width="20.0" height="154.0" rx="0" class="col"/><rect x="87.5" y="198.8" width="325.0" height="32.5" rx="0" class="fill"/><line x1="95.5" y1="208.8" x2="404.5" y2="208.8" class="keys"/><circle cx="250.0" cy="215.0" r="4.0" class="axis"/><line x1="87.5" y1="182.8" x2="412.5" y2="182.8" class="dim"/><path d="M87.5,182.8 l6,-3 l0,6 z" class="arr"/><path d="M412.5,182.8 l-6,-3 l0,6 z" class="arr"/><text x="250.0" y="178.8" class="dt" text-anchor="middle">琴長 130（包絡 ≤134）</text><line x1="156.2" y1="422.0" x2="343.8" y2="422.0" class="dim"/><path d="M156.2,422.0 l6,-3 l0,6 z" class="arr"/><path d="M343.8,422.0 l-6,-3 l0,6 z" class="arr"/><text x="250.0" y="432.0" class="dt" text-anchor="middle">底座 75</text><line x1="412.5" y1="215.0" x2="444.5" y2="215.0" class="ext"/><line x1="440.5" y1="215.0" x2="440.5" y2="400.0" class="dim"/><path d="M440.5,215.0 l-3,6 l6,0 z" class="arr"/><path d="M440.5,400.0 l-3,-6 l6,0 z" class="arr"/><text x="446.5" y="311.5" class="dt" text-anchor="start">樞軸高 64–114</text><text x="446.5" y="245.0" class="dt" text-anchor="start">（鍵盤面 ＝ 樞軸 ＋6.5）</text><text x="250.0" y="24.0" class="h" text-anchor="middle">正視（彈奏者方向）</text><text x="250.0" y="44.0" class="sub" text-anchor="middle">立柱在琴後方，被琴擋住</text><rect x="666.2" y="375.0" width="187.5" height="10.0" rx="0" class="fill"/><circle cx="681.2" cy="390.6" r="9.4" class="k"/><line x1="681.2" y1="381.2" x2="681.2" y2="385.0" class="k"/><circle cx="838.8" cy="390.6" r="9.4" class="k"/><line x1="838.8" y1="381.2" x2="838.8" y2="385.0" class="k"/><line x1="646.2" y1="400.0" x2="873.8" y2="400.0" class="ground"/><rect x="750.0" y="217.0" width="20.0" height="158.0" rx="0" class="col"/><rect x="706.0" y="212.0" width="54.0" height="7.0" rx="0" class="col"/><rect x="676.2" y="198.8" width="67.5" height="32.5" rx="0" class="fill"/><rect x="678.2" y="195.8" width="63.5" height="3.0" rx="0" class="keys2"/><circle cx="743.8" cy="215.0" r="4.0" class="axis"/><path d="M682.2,233.2 L746.8,233.2 L746.8,209.0" class="plate"/><rect x="679.0" y="233.2" width="12.0" height="6.0" rx="0" class="pad"/><text x="685.0" y="255.2" class="lab" text-anchor="middle">前承托墊</text><text x="685.0" y="267.2" class="lab" text-anchor="middle">（只在上抬側）</text><line x1="710.0" y1="158.8" x2="760.0" y2="158.8" class="dim"/><path d="M710.0,158.8 l6,-3 l0,6 z" class="arr"/><path d="M760.0,158.8 l-6,-3 l0,6 z" class="arr"/><text x="735.0" y="154.8" class="dt" text-anchor="middle">手臂偏距 20</text><line x1="676.2" y1="182.8" x2="743.8" y2="182.8" class="dim"/><path d="M676.2,182.8 l6,-3 l0,6 z" class="arr"/><path d="M743.8,182.8 l-6,-3 l0,6 z" class="arr"/><text x="710.0" y="178.8" class="dt" text-anchor="middle">琴深 27</text><line x1="853.8" y1="375.0" x2="897.8" y2="375.0" class="ext"/><line x1="893.8" y1="375.0" x2="893.8" y2="400.0" class="dim"/><path d="M893.8,375.0 l-3,6 l6,0 z" class="arr"/><path d="M893.8,400.0 l-3,-6 l6,0 z" class="arr"/><text x="899.8" y="391.5" class="dt" text-anchor="start">底座上緣 10</text><line x1="676.2" y1="198.8" x2="642.2" y2="198.8" class="ext"/><line x1="676.2" y1="231.2" x2="642.2" y2="231.2" class="ext"/><line x1="646.2" y1="198.8" x2="646.2" y2="231.2" class="dim"/><path d="M646.2,198.8 l-3,6 l6,0 z" class="arr"/><path d="M646.2,231.2 l-3,-6 l6,0 z" class="arr"/><text x="640.2" y="219.0" class="dt" text-anchor="end">厚 13</text><text x="760.0" y="24.0" class="h" text-anchor="middle">側視（前方在左）</text><text x="760.0" y="44.0" class="sub" text-anchor="middle">樞軸在琴背面中央，手臂從立柱頂往前伸</text><text x="760.0" y="363.0" class="lab" text-anchor="middle">立柱 3 節</text><text x="751.8" y="205.0" class="lab" text-anchor="start">樞軸</text><text x="751.8" y="227.0" class="lab" text-anchor="start">＝重心</text></svg><figcaption>圖 2　正視與側視。樞軸在琴背面中央、高度＝琴厚度中點（＝重心）。手臂從立柱頂往前伸 20，琴在立柱前方。</figcaption></figure>
+<figure><svg viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="俯視"><rect x="406.2" y="106.2" width="187.5" height="187.5" rx="4" class="fill"/><circle cx="418.8" cy="118.8" r="5.0" class="k"/><circle cx="581.2" cy="118.8" r="5.0" class="k"/><circle cx="418.8" cy="281.2" r="5.0" class="k"/><circle cx="581.2" cy="281.2" r="5.0" class="k"/><circle cx="500.0" cy="200.0" r="10.0" class="col"/><line x1="500.0" y1="200.0" x2="500.0" y2="150.0" class="k"/><rect x="337.5" y="116.2" width="325.0" height="67.5" rx="0" class="fill"/><line x1="345.5" y1="126.2" x2="654.5" y2="126.2" class="keys"/><circle cx="500.0" cy="150.0" r="4.0" class="axis"/><rect x="455.5" y="125.0" width="14.0" height="10.0" rx="0" class="pad"/><rect x="418.0" y="125.0" width="14.0" height="10.0" rx="0" class="pad"/><text x="445.0" y="106.2" class="lab" text-anchor="middle">前承托墊 ×2（左側＝旋轉時上抬側）</text><text x="500.0" y="357.8" class="lab" text-anchor="middle">右端往下轉 → 右側不可有任何托點</text><line x1="406.2" y1="313.8" x2="593.8" y2="313.8" class="dim"/><path d="M406.2,313.8 l6,-3 l0,6 z" class="arr"/><path d="M593.8,313.8 l-6,-3 l0,6 z" class="arr"/><text x="500.0" y="319.8" class="dt" text-anchor="middle">底座 75 × 75，四角萬向輪附剎車</text><line x1="500.0" y1="200.0" x2="696.5" y2="200.0" class="ext"/><line x1="662.5" y1="150.0" x2="696.5" y2="150.0" class="ext"/><line x1="692.5" y1="150.0" x2="692.5" y2="200.0" class="dim"/><path d="M692.5,150.0 l-3,6 l6,0 z" class="arr"/><path d="M692.5,200.0 l-3,-6 l6,0 z" class="arr"/><text x="698.5" y="179.0" class="dt" text-anchor="start">偏距 20</text><text x="500.0" y="341.8" class="lab" text-anchor="middle">▼ 前（彈奏者）</text><text x="500.0" y="24.0" class="h" text-anchor="middle">俯視（彈奏）</text><text x="516.0" y="204.0" class="lab" text-anchor="start">立柱軸心</text></svg><figcaption>圖 3　俯視。承托墊只能放左側（旋轉時右端往下、左端往上），右側任何托點都會被掃到。</figcaption></figure>
+</section>
+
+<section>
+<h2>三、收納狀態</h2>
+<figure><svg viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="收納"><rect x="156.2" y="405.0" width="187.5" height="10.0" rx="0" class="fill"/><circle cx="171.2" cy="420.6" r="9.4" class="k"/><line x1="171.2" y1="411.2" x2="171.2" y2="415.0" class="k"/><circle cx="328.8" cy="420.6" r="9.4" class="k"/><line x1="328.8" y1="411.2" x2="328.8" y2="415.0" class="k"/><line x1="136.2" y1="430.0" x2="363.8" y2="430.0" class="ground"/><rect x="240.0" y="247.0" width="20.0" height="158.0" rx="0" class="col"/><rect x="250.0" y="242.0" width="50.0" height="7.0" rx="0" class="col"/><rect x="266.2" y="82.5" width="67.5" height="325.0" rx="0" class="fill"/><line x1="274.2" y1="90.5" x2="274.2" y2="399.5" class="keys"/><rect x="263.2" y="405.0" width="73.5" height="7.5" rx="0" class="slot"/><circle cx="300.0" cy="245.0" r="4.0" class="axis"/><line x1="333.8" y1="82.5" x2="367.8" y2="82.5" class="ext"/><line x1="363.8" y1="82.5" x2="363.8" y2="430.0" class="dim"/><path d="M363.8,82.5 l-3,6 l6,0 z" class="arr"/><path d="M363.8,430.0 l-3,-6 l6,0 z" class="arr"/><text x="369.8" y="260.2" class="dt" text-anchor="start">總高 139</text><line x1="250.0" y1="245.0" x2="142.2" y2="245.0" class="ext"/><line x1="146.2" y1="245.0" x2="146.2" y2="430.0" class="dim"/><path d="M146.2,245.0 l-3,6 l6,0 z" class="arr"/><path d="M146.2,430.0 l-3,-6 l6,0 z" class="arr"/><text x="140.2" y="341.5" class="dt" text-anchor="end">樞軸降到 74</text><line x1="250.0" y1="66.5" x2="300.0" y2="66.5" class="dim"/><path d="M250.0,66.5 l6,-3 l0,6 z" class="arr"/><path d="M300.0,66.5 l-6,-3 l0,6 z" class="arr"/><text x="275.0" y="62.5" class="dt" text-anchor="middle">20</text><text x="250.0" y="24.0" class="h" text-anchor="middle">收納 正視（鍵盤朝前）</text><text x="250.0" y="44.0" class="sub" text-anchor="middle">旋轉盤轉 90° 後，琴在立柱側邊；升降柱降到預設位，琴下端進卡槽</text><text x="339.8" y="399.0" class="lab" text-anchor="start">卡槽深 3</text><rect x="656.2" y="405.0" width="187.5" height="10.0" rx="0" class="fill"/><circle cx="671.2" cy="420.6" r="9.4" class="k"/><line x1="671.2" y1="411.2" x2="671.2" y2="415.0" class="k"/><circle cx="828.8" cy="420.6" r="9.4" class="k"/><line x1="828.8" y1="411.2" x2="828.8" y2="415.0" class="k"/><line x1="636.2" y1="430.0" x2="863.8" y2="430.0" class="ground"/><rect x="740.0" y="247.0" width="20.0" height="158.0" rx="0" class="col"/><rect x="733.8" y="82.5" width="32.5" height="325.0" rx="0" class="fill"/><rect x="730.8" y="82.5" width="3.0" height="325.0" rx="0" class="keys2"/><text x="750.0" y="24.0" class="h" text-anchor="middle">收納 側視</text><text x="750.0" y="44.0" class="sub" text-anchor="middle">琴與立柱在同一縱面，琴擋住立柱；厚度方向只有 13</text><line x1="733.8" y1="66.5" x2="766.2" y2="66.5" class="dim"/><path d="M733.8,66.5 l6,-3 l0,6 z" class="arr"/><path d="M766.2,66.5 l-6,-3 l0,6 z" class="arr"/><text x="750.0" y="62.5" class="dt" text-anchor="middle">13</text><text x="750.0" y="470.0" class="lab" text-anchor="middle">▲ 從右側看</text></svg><figcaption>圖 4　旋轉盤轉 90° 後琴在立柱右側、鍵盤朝前；升降柱降到樞軸 74，琴下端進底座卡槽 3 cm，上鎖下槽兩點固定。總高 139。</figcaption></figure>
+</section>
+
+<section>
+<h2>四、樞軸與轉接板</h2>
+<figure><svg viewBox="0 0 1000 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="樞軸細節"><rect x="339.0" y="191.0" width="162.0" height="78.0" rx="0" class="fill"/><rect x="345.0" y="185.0" width="150.0" height="6.0" rx="0" class="keys2"/><text x="369.0" y="179.0" class="lab" text-anchor="middle">鍵盤面</text><circle cx="366.0" cy="263.0" r="3.0" class="hole"/><circle cx="420.0" cy="263.0" r="3.0" class="hole"/><circle cx="474.0" cy="263.0" r="3.0" class="hole"/><text x="360.0" y="319.0" class="lab" text-anchor="middle">原廠琴架螺孔（M6 嵌件，每型號位置不同 → 轉接板依型號開孔）</text><path d="M349.0,271.0 L511.0,271.0 L511.0,197.0 l-8,0 l0,68.0 L349.0,279.0 z" class="plate"/><text x="525.0" y="299.0" class="lab" text-anchor="start">轉接板（鋁，底面鎖螺孔，L 彎到背面）</text><circle cx="529.0" cy="230.0" r="16.0" class="boss"/><circle cx="529.0" cy="230.0" r="5.0" class="axis"/><text x="529.0" y="204.0" class="lab" text-anchor="middle">樞軸</text><rect x="545.0" y="221.0" width="108.0" height="18.0" rx="0" class="col"/><rect x="653.0" y="170.0" width="48.0" height="240.0" rx="0" class="col"/><text x="677.0" y="160.0" class="lab" text-anchor="middle">立柱</text><text x="573.0" y="210.0" class="lab" text-anchor="start">手臂（內含軸承座、0°/90° 鎖銷、線槽）</text><text x="410.0" y="235.0" class="lab2" text-anchor="end">＋重心（實量，軸心對準 ±5mm）</text><line x1="420.0" y1="230.0" x2="529.0" y2="230.0" class="ext"/><rect x="362.0" y="281.0" width="20.0" height="10.0" rx="0" class="pad"/><line x1="372.0" y1="291.0" x2="372.0" y2="329.0" class="col"/><text x="358.0" y="349.0" class="lab" text-anchor="start">前承托墊（x＝−15／−30 處，從手臂分叉過來）</text><text x="60.0" y="60.0" class="lab" text-anchor="start">直立時琴掃過的區域：以樞軸為圓心、半徑 67 的圓盤，厚 27（紙面垂直方向）。</text><text x="60.0" y="78.0" class="lab" text-anchor="start">任何支撐都不能進到這個圓盤 → 支撐只能從背面來，承托墊只能放在上抬側。</text><text x="60.0" y="96.0" class="lab" text-anchor="start">立柱在圓盤後方 20，淨空 ≥ 2.5（27/2＋立柱半寬 4＋間隙）。</text><text x="500.0" y="24.0" class="h" text-anchor="middle">樞軸細節（側向剖面）</text></svg><figcaption>圖 5　側向剖面。轉接板鎖原廠琴架螺孔，L 彎到背面接樞軸座；樞軸座在手臂末端。重心要實量，軸心對準。</figcaption></figure>
+<div class="note"><b>我 9/19 v5 寫「琴貼在托板上、從下面托」，這版推翻。</b>琴直立時下半截會掃過琴正下方整個區域（半徑 67 的圓盤），任何在下面的托板、叉架都會被撞。支撐只能從背面來，承托墊只能放上抬側。</div>
+</section>
+
+<section>
+<h2>五、平衡與傾倒</h2>
+<figure><svg viewBox="0 0 1000 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="平衡"><rect x="202.5" y="152.5" width="195.0" height="195.0" rx="4" class="fill"/><circle cx="212.9" cy="162.9" r="5.0" class="k"/><circle cx="387.1" cy="162.9" r="5.0" class="k"/><circle cx="212.9" cy="337.1" r="5.0" class="k"/><circle cx="387.1" cy="337.1" r="5.0" class="k"/><rect x="202.5" y="152.5" width="195.0" height="195.0" rx="0" class="tip"/><text x="300.0" y="144.5" class="lab" text-anchor="middle">紅框＝傾倒線（四角輪連線）</text><circle cx="300.0" cy="250.0" r="10.4" class="col"/><rect x="131.0" y="162.9" width="338.0" height="70.2" rx="0" class="ghost"/><circle cx="300.0" cy="224.0" r="5.0" class="com"/><text x="310.0" y="228.0" class="lab" text-anchor="start">整機重心（彈奏、琴左右向）</text><circle cx="300.0" cy="250.0" r="26.0" class="comring"/><text x="268.0" y="254.0" class="lab" text-anchor="end">旋轉盤轉任意角時重心的軌跡 r=10</text><path d="M459.0,158.0 l0,30" class="force" marker-end="url(#ah)"/><text x="459.0" y="152.0" class="lab2" text-anchor="middle">案1 壓琴端：60 kg 才會側翻</text><path d="M300.0,112.9 l0,30" class="force" marker-end="url(#ah)"/><text x="300.0" y="106.9" class="lab" text-anchor="middle">（往下壓不翻，見右表）</text><text x="300.0" y="377.5" class="lab" text-anchor="middle">▼ 前（彈奏者）</text><text x="300.0" y="24.0" class="h" text-anchor="middle">俯視：底座、傾倒線、重心</text><rect x="662.5" y="374.0" width="195.0" height="10.4" rx="0" class="fill"/><circle cx="678.1" cy="390.2" r="9.8" class="k"/><line x1="678.1" y1="380.5" x2="678.1" y2="384.4" class="k"/><circle cx="841.9" cy="390.2" r="9.8" class="k"/><line x1="841.9" y1="380.5" x2="841.9" y2="384.4" class="k"/><line x1="642.5" y1="400.0" x2="877.5" y2="400.0" class="ground"/><rect x="749.6" y="209.6" width="20.8" height="164.4" rx="0" class="col"/><rect x="672.9" y="190.7" width="70.2" height="33.8" rx="0" class="fill"/><circle cx="734.0" cy="283.0" r="5.0" class="com"/><line x1="734.0" y1="283.0" x2="734.0" y2="396.0" class="com2" stroke-dasharray="4,3"/><text x="734.0" y="273.0" class="lab2" text-anchor="middle">W=44 kg</text><path d="M622.9,190.7 l40,0" class="force" marker-end="url(#ah)"/><text x="642.9" y="180.7" class="lab2" text-anchor="middle">F 水平</text><line x1="678.1" y1="398.0" x2="678.1" y2="187.6" class="tip" stroke-dasharray="6,4"/><text x="678.1" y="181.6" class="lab" text-anchor="middle">前輪＝傾倒線</text><line x1="678.1" y1="348.0" x2="734.0" y2="348.0" class="dim"/><path d="M678.1,348.0 l6,-3 l0,6 z" class="arr"/><path d="M734.0,348.0 l-6,-3 l0,6 z" class="arr"/><text x="706.0" y="344.0" class="dt" text-anchor="middle">力臂 27.5</text><text x="760.0" y="24.0" class="h" text-anchor="middle">側視：F×h 對 W×力臂</text><text x="760.0" y="44.0" class="sub" text-anchor="middle">翻倒條件 F × 80 ＞ W × 力臂</text></svg><figcaption>圖 6　四角輪的連線就是傾倒線。整機重心在立柱軸心前方 10（琴 15 kg 在前 20、其餘在軸心）；旋轉盤轉到任何角度，重心都在半徑 10 的圓上。</figcaption></figure>
+<div class="tw"><table class="req"><thead><tr><th>受力情況</th><th>翻倒門檻</th><th>怎麼算</th><th>判斷</th></tr></thead><tbody><tr><td data-l="受力情況">案 1　彈到最高／最低音，琴端垂直往下壓</td><td data-l="翻倒門檻"><b>60 kg</b></td><td data-l="怎麼算">W×半寬 ÷ (琴半長−半寬) ＝ 44×37.5 ÷ (65−37.5)</td><td data-l="判斷">用力彈 5–10 kg、小孩掛 20 kg 都不會翻</td></tr><tr><td data-l="受力情況">案 2a　水平推拉鍵盤（高 80），琴左右向，前後方向</td><td data-l="翻倒門檻"><b>15 kg</b></td><td data-l="怎麼算">W×(半寬−重心偏距) ÷ 80 ＝ 44×27.5 ÷ 80</td><td data-l="判斷">成人撐著站起來約 5–10 kg，夠</td></tr><tr><td data-l="受力情況">案 2b　同上，左右方向</td><td data-l="翻倒門檻"><b>20 kg</b></td><td data-l="怎麼算">44×37.5 ÷ 80</td><td data-l="判斷"></td></tr><tr><td data-l="受力情況">案 2c　旋轉盤轉到最差角度再推</td><td data-l="翻倒門檻"><b>15 kg</b></td><td data-l="怎麼算">重心在 r=10 圓上最靠邊的點</td><td data-l="判斷">跟 2a 一樣，底座方的所以四向對稱</td></tr><tr><td data-l="受力情況">案 3　收納直立，推琴頂端（高 139）</td><td data-l="翻倒門檻"><b>8.7 kg</b></td><td data-l="怎麼算">44×27.5 ÷ 139</td><td data-l="判斷">跟移動電視架同級。靠牆停＋鎖輪，或底座加大到 85</td></tr><tr><td data-l="受力情況">案 4　往下壓琴的前緣中央</td><td data-l="翻倒門檻">不翻</td><td data-l="怎麼算">琴前緣在軸心前 33.5，傾倒線在前 37.5，壓點在線內</td><td data-l="判斷">但壓 30 kg 以上樞軸和立柱要撐住，見剛性</td></tr></tbody></table></div>
+<div class="ok"><b>要底座多大才夠，反過來算：</b>門檻 ＝ W × 力臂 ÷ 高度。要案 2 到 20 kg：力臂 36 → 底座 92；要案 3 到 12 kg：底座 96。底座每加 10 cm 邊長，門檻約加 25%；整機每加 5 kg，約加 11%。<b>75 是「彈奏安全、收納靠牆」的折衷</b>，要再保守就 85。</div>
+</section>
+
+<section>
+<h2>六、規格表</h2>
+<div class="tw"><table class="req"><thead><tr><th>項目</th><th>規格</th><th>備註</th></tr></thead><tbody><tr><td data-l="項目">琴（設計包絡）</td><td data-l="規格">長 1280–1340、深 250–300、厚 120–160 mm；質量 ≤ 20 kg（設計值 130×27×13 cm、15 kg）</td><td data-l="備註">最終琴由你的琴廠給；YDP-123 只做現場示範</td></tr><tr><td data-l="項目">琴的固定</td><td data-l="規格">轉接板鎖原廠琴架螺孔（底面），L 彎到背面中央接樞軸座。每型號一塊轉接板</td><td data-l="備註">像螢幕 VESA 的概念；轉接板留長孔調重心</td></tr><tr><td data-l="項目">樞軸（主機構）</td><td data-l="規格">軸向＝琴的深度方向，穿過琴重心（厚度 ±5 mm、長度 ±10 mm）。行程 0°↔90°，兩端定位＋鎖</td><td data-l="備註">零力矩；重心要拿真琴實量</td></tr><tr><td data-l="項目">樞軸承載</td><td data-l="規格">靜態：琴重 20 kg＋彈奏 10 kg 於琴端 → 傾覆力矩 ≥ 20 N·m（重心在軸前 13.5 cm）；鎖定 ≥ 100 N·m</td><td data-l="備註">琴端壓 10 kg × 60 cm ＝ 59 N·m，取 1.7 倍</td></tr><tr><td data-l="項目">前承托墊</td><td data-l="規格">彈奏時托住琴底前側，2 點，只在旋轉時上抬的那一側（x＝−15／−30）</td><td data-l="備註">另一側任何托點都會被直立的琴掃到</td></tr><tr><td data-l="項目">旋轉盤</td><td data-l="規格">立柱頂端，360°，每 90° 定位，可鎖</td><td data-l="備註">收納時轉 90° 讓鍵盤朝前</td></tr><tr><td data-l="項目">升降柱</td><td data-l="規格">樞軸高 64–114 cm（鍵盤面 70–120）→ 行程 ≥ 50 cm；裝在底座上緣（離地 10）的縮回長度 ≤ 52 cm；收納預設位 74</td><td data-l="備註">捷昌 JC35EG 三節：縮回＝行程/2＋200 → 行程 600 時縮回 500 ✓；JS36DR4 縮回 580 太高</td></tr><tr><td data-l="項目">立柱剛性</td><td data-l="規格">琴端壓 5 kg 時琴端下沉 ≤ 3 mm；側向彎矩 ≥ 150 N·m</td><td data-l="備註">三節柱接頭間隙是晃的主因，要他們保證</td></tr><tr><td data-l="項目">手臂</td><td data-l="規格">從立柱頂往前 20 cm，內走電源線與踏板線，樞軸處留 90° 服務迴圈</td><td data-l="備註">偏距＝琴深/2＋立柱半寬＋間隙</td></tr><tr><td data-l="項目">底座</td><td data-l="規格">75×75 cm 方板，四角萬向輪 ⌀75 附剎車（每顆 ≥50 kg），底座本體 ≥ 12 kg；收納卡槽深 3 cm 在旋轉後的琴下端位置</td><td data-l="備註">重量是配重，不是浪費</td></tr><tr><td data-l="項目">整機</td><td data-l="規格">目標 ≤ 40 kg（琴 15＋轉接 3＋手臂 3＋柱 11＋底座 12 ≈ 44）</td><td data-l="備註">超標 4 kg，柱或底座改鋁才壓得回來</td></tr></tbody></table></div>
+</section>
+
+<section>
+<h2>七、現場要問捷昌的</h2>
+<div class="tw"><table class="req"><thead><tr><th>項目</th><th>問題</th><th>為什麼</th></tr></thead><tbody><tr><td data-l="項目">旋轉樞軸</td><td data-l="問題">軸承用哪種（成對斜角／迴轉支承／襯套＋推力）？間隙多少？</td><td data-l="為什麼">彈奏手感取決於此</td></tr><tr><td data-l="項目">鎖定</td><td data-l="問題">0°／90° 鎖銷還是制動盤？單手操作？</td><td data-l="為什麼">鎖要吃 100 N·m</td></tr><tr><td data-l="項目">升降柱</td><td data-l="問題">有沒有縮回 ≤ 52 cm、行程 ≥ 50 cm、速度 ≥ 25 mm/s 的三節柱？側向彎矩規格？</td><td data-l="為什麼">15 mm/s 升 50 cm 要 33 秒</td></tr><tr><td data-l="項目">前承托墊</td><td data-l="問題">能不能從手臂分叉做兩根固定支撐到琴底左前側？</td><td data-l="為什麼">不要連桿，固定的最簡單</td></tr><tr><td data-l="項目">小量</td><td data-l="問題">原型 1–3 台怎麼收費？交期？</td><td data-l="為什麼"></td></tr><tr><td data-l="項目">材料</td><td data-l="問題">柱、手臂、底座用鋁的可行性與價差</td><td data-l="為什麼">為了 40 kg</td></tr></tbody></table></div>
+<div class="note"><b>YDP-123 的事要先講：</b>它是 ARIUS 櫃體琴、GH 擊錘鍵盤，比薄板琴厚、深、重（確切數字我沒查到）。拿去示範「這是什麼、多重、手感」可以，<b>底座尺寸不要照它做</b>，照上面的包絡。</div>
+</section>
+
+<section>
+<h2>八、沒做的</h2>
+<p class="sub">照片級效果圖做不出來，上面是工程線稿。要給 ChatGPT 重生效果圖，用這組比例：琴 130×27×13、底座 75×75、立柱在琴後方偏距 20、樞軸高 64–114、直立總高 139。數值估算未經實物驗證：整機重量 44 kg 是估的，重心位置要拿原型秤。</p>
+</section>
+
+<footer>自有樂器品牌 21_自有樂器品牌 ／ 06_底座結構規格與工程圖 ／ 2026-10-03<br>本頁不收錄、不索引（noindex、robots Disallow）。</footer>
+</div>
+</body>
+</html>
